@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Osman.is — AI Products That Change Everything</title>
+  <meta name="description" content="A collection of AI-powered products built for real human moments. Emotion, transformation, legacy, creativity.">
+  <meta property="og:title" content="Osman.is — AI Products That Change Everything">
+  <meta property="og:description" content="Eulogy AI, Truth Engine, Revenge Glow Up, and 9 more products. Each one built for the moments that matter most.">
+  <meta property="og:image" content="https://osman.is/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── RESET & ROOT ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #07050a;
+      --surface: #0d0a12;
+      --card:    #120e18;
+      --border:  #1e1828;
+      --gold:    #d4a843;
+      --gold2:   #f0c060;
+      --text:    #ede6fa;
+      --muted:   #6a5878;
+      --dim:     #2a1f38;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100vh; overflow-x: hidden;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(180,130,40,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 0% 60%, rgba(100,60,180,0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 100% 80%, rgba(180,60,40,0.04) 0%, transparent 60%);
+    }
+    /* Grain overlay */
+    body::after {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      background-size: 180px 180px; opacity: 0.7;
+    }
+    .layer { position: relative; z-index: 1; }
+
+    /* ── HEADER ───────────────────────────────────────────────────── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(7, 5, 10, 0.88); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900;
+      background: linear-gradient(135deg, var(--gold2), var(--gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+    .logo-sub { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; color: var(--muted); margin-top: 1px; }
+    nav { display: flex; align-items: center; gap: 24px; }
+    nav a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+    .nav-cta {
+      padding: 8px 18px; background: linear-gradient(135deg, var(--gold), #a07828);
+      border-radius: 8px; font-size: 12px; font-weight: 700; color: #1a1008;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(212,168,67,0.3); }
+
+    /* ── HERO ─────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 90vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 80px 24px 60px; text-align: center;
+    }
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 4px;
+      color: rgba(212,168,67,0.6); margin-bottom: 24px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 8vw, 96px); font-weight: 900;
+      line-height: 0.92; letter-spacing: -2px; margin-bottom: 20px;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .hero-title .gold {
+      background: linear-gradient(135deg, var(--gold2) 0%, var(--gold) 50%, #a07828 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-title .italic { font-style: italic; }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px); color: rgba(237, 230, 250, 0.4);
+      max-width: 560px; line-height: 1.65; margin-bottom: 40px;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+    .hero-tags {
+      display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 52px; animation: fadeUp 0.8s 0.3s ease both;
+    }
+    .hero-tag {
+      padding: 6px 16px; border-radius: 20px; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04); color: var(--muted);
+    }
+    .hero-stats {
+      display: flex; gap: 48px; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'DM Mono', monospace; font-size: 32px; font-weight: 700;
+      color: var(--gold); display: block; line-height: 1;
+    }
+    .stat-lbl { font-size: 11px; color: var(--muted); letter-spacing: 1px; margin-top: 5px; display: block; }
+
+    /* ── SECTION HEADER ──────────────────────────────────────────── */
+    .section { padding: 80px 24px; max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 52px; }
+    .section-eyebrow {
+      font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px;
+      color: rgba(212,168,67,0.5); margin-bottom: 14px; display: block;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900; margin-bottom: 12px;
+    }
+    .section-sub { font-size: 15px; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.6; }
+
+    /* ── PRODUCT GRID ─────────────────────────────────────────────── */
+    .products-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .product-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 28px; position: relative; overflow: hidden;
+      transition: all 0.3s; display: flex; flex-direction: column;
+      text-decoration: none; color: inherit;
+    }
+    .product-card::before {
+      content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s;
+      border-radius: 18px;
+    }
+    .product-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.14); }
+    .product-card:hover::before { opacity: 1; }
+    .product-card .top-bar {
+      position: absolute; top: 0; left: 0; right: 0; height: 2px; border-radius: 18px 18px 0 0;
+    }
+    .pc-emoji { font-size: 36px; margin-bottom: 16px; }
+    .pc-cat {
+      font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px;
+      color: var(--muted); margin-bottom: 8px; text-transform: uppercase;
+    }
+    .pc-name {
+      font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700;
+      line-height: 1.1; margin-bottom: 10px;
+    }
+    .pc-desc {
+      font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 20px;
+    }
+    .pc-footer { display: flex; align-items: center; justify-content: space-between; }
+    .pc-price {
+      font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 700;
+    }
+    .pc-btn {
+      padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700;
+      cursor: pointer; border: none; transition: all 0.2s;
+    }
+    .viral-badge {
+      position: absolute; top: 16px; right: 16px;
+      font-size: 9px; font-weight: 700; letter-spacing: 1px;
+      padding: 3px 8px; border-radius: 10px;
+    }
+
+    /* Product theme colors */
+    .theme-gold    { --pc: #d4a843; --pcb: rgba(212,168,67,0.12); }
+    .theme-rose    { --pc: #e11d48; --pcb: rgba(225,29,72,0.1); }
+    .theme-violet  { --pc: #9870e8; --pcb: rgba(152,112,232,0.1); }
+    .theme-cyan    { --pc: #22d3ee; --pcb: rgba(34,211,238,0.08); }
+    .theme-green   { --pc: #22c55e; --pcb: rgba(34,197,94,0.08); }
+    .theme-amber   { --pc: #f59e0b; --pcb: rgba(245,158,11,0.1); }
+    .theme-crimson { --pc: #c41e3a; --pcb: rgba(196,30,58,0.1); }
+    .theme-indigo  { --pc: #818cf8; --pcb: rgba(129,140,248,0.1); }
+    .theme-pink    { --pc: #ec4899; --pcb: rgba(236,72,153,0.1); }
+    .theme-teal    { --pc: #14b8a6; --pcb: rgba(20,184,166,0.08); }
+    .theme-orange  { --pc: #f97316; --pcb: rgba(249,115,22,0.1); }
+    .theme-sage    { --pc: #84cc16; --pcb: rgba(132,204,22,0.08); }
+
+    [class*="theme-"] .top-bar { background: linear-gradient(90deg, var(--pc), color-mix(in srgb, var(--pc) 60%, transparent)); }
+    [class*="theme-"] .product-card::before { background: radial-gradient(ellipse at 50% 0%, var(--pcb), transparent 70%); }
+    [class*="theme-"] .pc-name { color: var(--pc); }
+    [class*="theme-"] .pc-price { color: var(--pc); }
+    [class*="theme-"] .pc-btn { background: var(--pcb); color: var(--pc); border: 1px solid color-mix(in srgb, var(--pc) 30%, transparent); }
+    [class*="theme-"] .pc-btn:hover { background: color-mix(in srgb, var(--pc) 20%, transparent); }
+    [class*="theme-"] .viral-badge { background: var(--pcb); color: var(--pc); border: 1px solid color-mix(in srgb, var(--pc) 25%, transparent); }
+
+    /* ── MAYA SECTION ─────────────────────────────────────────────── */
+    .maya-section {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px 80px;
+    }
+    .maya-card {
+      background: linear-gradient(135deg, rgba(18,14,24,0.9), rgba(24,14,14,0.9));
+      border: 1px solid rgba(212,168,67,0.2); border-radius: 24px; padding: 48px;
+      display: flex; align-items: center; gap: 48px;
+      position: relative; overflow: hidden;
+    }
+    .maya-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), #c41e3a, var(--gold));
+    }
+    .maya-avatar {
+      width: 100px; height: 100px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), #c41e3a);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 42px; border: 3px solid rgba(212,168,67,0.3);
+      box-shadow: 0 0 40px rgba(212,168,67,0.2);
+    }
+    .maya-text { flex: 1; }
+    .maya-title {
+      font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900;
+      margin-bottom: 10px; color: var(--gold);
+    }
+    .maya-sub { font-size: 15px; color: rgba(237,230,250,0.55); line-height: 1.7; margin-bottom: 20px; }
+    .maya-platforms { display: flex; gap: 12px; flex-wrap: wrap; }
+    .plat-badge {
+      display: flex; align-items: center; gap: 6px; padding: 8px 16px;
+      border-radius: 24px; font-size: 12px; font-weight: 700; border: 1px solid;
+    }
+
+    /* ── HOW IT WORKS ─────────────────────────────────────────────── */
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .step-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+      padding: 24px; text-align: center;
+    }
+    .step-num {
+      font-family: 'DM Mono', monospace; font-size: 36px; font-weight: 700;
+      color: var(--gold); line-height: 1; margin-bottom: 14px; display: block;
+      opacity: 0.4;
+    }
+    .step-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── TICKER ───────────────────────────────────────────────────── */
+    .ticker-wrap { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 14px 0; margin: 40px 0; }
+    .ticker { display: flex; gap: 0; animation: ticker 25s linear infinite; white-space: nowrap; }
+    .ticker-item {
+      font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+      color: var(--muted); padding: 0 32px; flex-shrink: 0;
+    }
+    .ticker-item span { color: var(--gold); }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ── FOOTER ───────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border); padding: 40px 32px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 20px; max-width: 1200px; margin: 0 auto;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--gold); }
+    .footer-law { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+
+    /* ── ANIMATIONS ───────────────────────────────────────────────── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+
+    /* ── MOBILE ───────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .maya-card { flex-direction: column; text-align: center; padding: 32px 24px; gap: 24px; }
+      nav a { display: none; }
+    }
+    @media (max-width: 600px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      header { padding: 0 20px; }
+      .hero { padding: 60px 20px 40px; }
+      .hero-stats { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+<div class="layer">
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <div class="logo">Osman.is</div>
+      <div class="logo-sub">POWERED BY MIRZATECH.AI</div>
+    </div>
+    <nav>
+      <a href="#products">Products</a>
+      <a href="#maya">Maya AI</a>
+      <a href="#how">How It Works</a>
+      <a href="#products" class="nav-cta">Browse All</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">MIRZATECH.AI · AI PRODUCTS FOR REAL HUMAN MOMENTS</div>
+    <h1 class="hero-title">
+      AI built for the<br>
+      <span class="gold italic">moments that matter.</span>
+    </h1>
+    <p class="hero-sub">From grief to transformation, from love letters to legacy. Each product built around a single human moment — and powered by the most advanced AI on earth.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🔥 Self-Selling</span>
+      <span class="hero-tag">⚡ Instant Delivery</span>
+      <span class="hero-tag">🔒 Private by Default</span>
+      <span class="hero-tag">🇧🇦 Built by Mo Osmanović</span>
+      <span class="hero-tag">🤖 Powered by Maya AI</span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">12</span><span class="stat-lbl">PRODUCTS</span></div>
+      <div class="stat"><span class="stat-num">$5</span><span class="stat-lbl">STARTING PRICE</span></div>
+      <div class="stat"><span class="stat-num">∞</span><span class="stat-lbl">DAILY VALUE</span></div>
+      <div class="stat"><span class="stat-num">0</span><span class="stat-lbl">DATA STORED</span></div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span class="ticker-item">🕯️ EULOGY AI <span>$25</span></span>
+      <span class="ticker-item">🔥 TRUTH ENGINE <span>$5</span></span>
+      <span class="ticker-item">💍 WEDDING VOWS <span>$15</span></span>
+      <span class="ticker-item">✉️ UNSENT.AI <span>$7</span></span>
+      <span class="ticker-item">🤘 RAGE ROOM <span>$8</span></span>
+      <span class="ticker-item">🌙 DREAMFORGE <span>$6</span></span>
+      <span class="ticker-item">📅 1000 DAYS <span>$9/mo</span></span>
+      <span class="ticker-item">🎙️ VOICEVAULT <span>$12/mo</span></span>
+      <span class="ticker-item">👶 BABY NAME AI <span>$12</span></span>
+      <span class="ticker-item">⭐ AI ORACLE <span>$5</span></span>
+      <span class="ticker-item">💔 BREAKUP AI <span>$8</span></span>
+      <span class="ticker-item">🔗 ETERNALLINK <span>$12</span></span>
+      <span class="ticker-item">🌿 GLOW UP AI <span>$9</span></span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item">🕯️ EULOGY AI <span>$25</span></span>
+      <span class="ticker-item">🔥 TRUTH ENGINE <span>$5</span></span>
+      <span class="ticker-item">💍 WEDDING VOWS <span>$15</span></span>
+      <span class="ticker-item">✉️ UNSENT.AI <span>$7</span></span>
+      <span class="ticker-item">🤘 RAGE ROOM <span>$8</span></span>
+      <span class="ticker-item">🌙 DREAMFORGE <span>$6</span></span>
+      <span class="ticker-item">📅 1000 DAYS <span>$9/mo</span></span>
+      <span class="ticker-item">🎙️ VOICEVAULT <span>$12/mo</span></span>
+      <span class="ticker-item">👶 BABY NAME AI <span>$12</span></span>
+      <span class="ticker-item">⭐ AI ORACLE <span>$5</span></span>
+      <span class="ticker-item">💔 BREAKUP AI <span>$8</span></span>
+      <span class="ticker-item">🔗 ETERNALLINK <span>$12</span></span>
+      <span class="ticker-item">🌿 GLOW UP AI <span>$9</span></span>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div id="products" class="section">
+    <div class="section-header">
+      <span class="section-eyebrow">THE FULL COLLECTION</span>
+      <h2 class="section-title">Every product. Every moment.</h2>
+      <p class="section-sub">12 AI-powered tools built for the moments when people need something real.</p>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- EULOGY AI -->
+      <div class="theme-gold">
+        <a class="product-card" href="https://eulogyai.osman.is" target="_blank">
+          <div class="top-bar"></div>
+          <div class="viral-badge">🔥 HIGHEST URGENCY</div>
+          <div class="pc-emoji">🕯️</div>
+          <div class="pc-cat">Grief & Legacy</div>
+          <div class="pc-name">Eulogy AI</div>
+          <p class="pc-desc">When words are the hardest to find, we help you find them. A beautiful, personalized eulogy written with care — in minutes.</p>
+          <div class="pc-footer">
+            <span class="pc-price">$25 / eulogy</span>
+            <button class="pc-btn">Try Now →</button>
+          </div>
+        </a>
+      </div>
+
+      <!-- TRUTH ENGINE -->
+      <div class="theme-crimson">
+        <a class="product-card" href="https://truthengine.osman.is" target="_blank">
+          <div class="top-bar"></div>
+          <div class="viral-badge">⚡ VIRAL BY DESIGN</div>
+          <div class="pc-emoji">🔥</div>
+          <div class="pc-cat">Emotional Transformation</div>
+          <div class="pc-name">Truth Engine</div>
+          <p class="pc-desc">Speak your truth. We transform it into music, video, literature — or burn it like it never existed. Your emotion, made art.</p>
+          <div class="pc-footer">
+            <span class="pc-price">$5 / transform</span>
+            <button class="pc-btn">Try Now →</button>
+          </div>
+        </a>
+      </div>
+
+      <!-- WEDDING VOWS -->
+      <div class="theme-pink">
+        <a class="product-card" href="https://weddingvows.osman.is" target="_blank">
+          <div class="top-bar"></div>
+          <div class="viral-badge">💍 HIGH INTENT</div>
+          <div class="pc-emoji">💍</div>
+          <div class="pc-cat">Love & Celebration</div>
+          <div class="pc-name">Wedding Vows AI</div>
+          <p class="pc-desc">Tell us your love story. We write vows that make the whole room cry — the good kind. Specific, real, unforgettable.</p>
+          <div class="pc-footer">
+            <span class="pc-price">$15 / generation</span>
+            <button class="pc-btn">Try Now →</button>
+          </div>
+        </a>
+      </div>
+
+      <!-- UNSENT.AI -->
+      <div class="theme-rose">
+        <a class="product-card" href="https://unsent.osman.is" target="_blank">
+          <div class="top-bar"></div>
+          <div class="pc-emoji">✉️</div>
+          <div class="pc-cat">Letters Never Sent</div>
+          <div class="pc-name">Unsent.ai</div>
+          <p class="pc-desc">Write the letter you'd never send — to your ex, a parent, your past self. AI transforms it into poetry, song, or a story. Or burns it forever.</p>
+          <div class="pc-footer">
+            <span class="pc-price">$7 / letter</span>
+            <button class="pc-btn">Try Now →</button>
+          </div>
+        </a>
+      </div>
+
+      <!-- RAGE ROOM -->
+      <div class="theme-crimson">
+        <a class="product-card" href="https://rageroom.osman.is" target="_blank">
+          <div class="top-bar"></div>
+          <div class="viral-badge">🤘 GEN Z GOLD</div>
+          <div class="pc-emoji">🤘</div>
+          <div class="pc-cat">Rage & Release</div>
+          <div class="pc-name">RageRoom.ai</div>
+          <p class="pc-desc">Type your absolute worst. We transform raw rage into metal lyrics, a diss track, dark poetry — or burn it completely. No judgment.</p>
+          <div class="pc-footer">
+            <span class="pc-price">$8 / session</span>
+            <button class="pc-btn">Try Now →</button>
+          </div>
+        </a>
+      </div>
+
+      <!-- DREAMFORGE -->
+      <div class="theme-indigo">
+        <a class="product-card" href="https://dreamforge.osman.is" target="_blank">
+          <div class="top-bar"></div>
+          <div class="pc-emoji">🌙</div>
+          <div class="pc-cat">Dreams & Subconscious</div>
+          <div class="pc-name">DreamForge</div>
+          <p class="pc-desc">Describe your dream at 3am. Get a short film script, a song, or a deep psychological reading. Your subconscious is talking. We help you listen.</p>
+          <div class="pc-footer">
+            <span class="pc-price">$6 / dream</span>
+            <button class="pc-btn">Try Now →</button>
+          </div>
+        </a>
+      </div>
+
+      <!-- 1000 DAYS -->
+      <div class="theme-amber">
+        <a class="product-card" href="https://1000days.osman.is" target="_blank">
+          <div class="top-bar"></div>
+          <div class="viral-badge">🏆 IMPOSSIBLE CHURN</div>
+          <div class="pc-emoji">📅</div>
+          <div class="pc-cat">Daily Journal · Memoir</div>
+          <div class="pc-name">1000 Days</div>
+          <p class="pc-desc">One truth a day. After 30 days, AI writes your chapter. After 1000 days, you have a memoir no ghostwriter could match.</p>
+          <div class="pc-footer">
+            <span class="pc-price">$9 / month</span>
+            <button class="pc-btn">Start Day 1 →</button>
+          </div>
+        </a>
+      </div>
+
+      <!-- VOICEVAULT -->
+      <div class="theme-cyan">
+        <a class="product-card" href="https://voicevault.osman.is" target="_blank">
+          <div class="top-bar"></div>
+          <div class="pc-emoji">🎙️</div>
+          <div class="pc-cat">Entrepreneur Tools</div>
+          <div class="pc-name">VoiceVault</div>
+          <p class="pc-desc">Every founder has 100 unprocessed voice memos. VoiceVault turns them into business plans, content calendars, and investor pitches. Instantly.</p>
+          <div class="pc-footer">
+            <span class="pc-price">$12 / month</span>
+            <button class="pc-btn">Try Now →</button>
+          </div>
+        </a>
+      </div>
+
+      <!-- BABY NAME AI -->
+      <div class="theme-orange">
+        <a class="product-card" href="https://babyname.osman.is" target="_blank">
+          <div class="top-bar"></div>
+          <div class="viral-badge">👶 SHARE LOOP</div>
+          <div class="pc-emoji">👶</div>
+          <div class="pc-cat">Family & New Life</div>
+          <div class="pc-name">Baby Name AI</div>
+          <p class="pc-desc">Tell us your heritage, surname, and style — we'll suggest 5 perfect names with meaning, origin, and why they'll work for a lifetime.</p>
+          <div class="pc-footer">
+            <span class="pc-price">$12 / generation</span>
+            <button class="pc-btn">Find the Name →</button>
+          </div>
+        </a>
+      </div>
+
+      <!-- AI ORACLE -->
+      <div class="theme-violet">
+        <a class="product-card" href="https://aioracle.osman.is" target="_blank">
+          <div class="top-bar"></div>
+          <div class="viral-badge">⭐ SCREENSHOT VIRAL</div>
+          <div class="pc-emoji">⭐</div>
+          <div class="pc-cat">Astrology & Insight</div>
+          <div class="pc-name">AI Oracle</div>
+          <p class="pc-desc">An eerily accurate personalized reading for your sign. Love, career, warnings, and a power move — specific enough to screenshot and send to everyone.</p>
+          <div class="pc-footer">
+            <span class="pc-price">$5 / reading</span>
+            <button class="pc-btn">Read My Stars →</button>
+          </div>
+        </a>
+      </div>
+
+      <!-- BREAKUP AI -->
+      <div class="theme-rose">
+        <a class="product-card" href="https://breakup.osman.is" target="_blank">
+          <div class="top-bar"></div>
+          <div class="viral-badge">💔 PEAK URGENCY</div>
+          <div class="pc-emoji">💔</div>
+          <div class="pc-cat">Endings & Closure</div>
+          <div class="pc-name">Breakup Text AI</div>
+          <p class="pc-desc">You know it's over. You just don't know how to say it. Three versions — short, medium, full — all clear, kind, and final.</p>
+          <div class="pc-footer">
+            <span class="pc-price">$8 / message</span>
+            <button class="pc-btn">Find the Words →</button>
+          </div>
+        </a>
+      </div>
+
+      <!-- ETERNALLINK -->
+      <div class="theme-gold">
+        <a class="product-card" href="https://eternallink.osman.is" target="_blank">
+          <div class="top-bar"></div>
+          <div class="viral-badge">🌿 GENERATIONAL</div>
+          <div class="pc-emoji">🔗</div>
+          <div class="pc-cat">Family Legacy · AncestorAI</div>
+          <div class="pc-name">EternalLink</div>
+          <p class="pc-desc">Build your family tree. Add stories, memories, and voice recordings. AI creates memoirs, letters, and a living AI you can talk to — forever.</p>
+          <div class="pc-footer">
+            <span class="pc-price">From $12 / member</span>
+            <button class="pc-btn">Start Your Tree →</button>
+          </div>
+        </a>
+      </div>
+
+      <!-- REVENGE GLOW UP -->
+      <div class="theme-amber" style="grid-column: span 3;">
+        <a class="product-card" href="https://glowup.osman.is" target="_blank" style="flex-direction: row; align-items: center; gap: 32px;">
+          <div class="top-bar"></div>
+          <div style="flex-shrink:0; text-align: center;">
+            <div class="pc-emoji" style="font-size: 52px; margin: 0;">🔥</div>
+          </div>
+          <div style="flex: 1;">
+            <div class="pc-cat">Transformation</div>
+            <div class="pc-name" style="font-size: 28px;">Revenge Glow Up AI</div>
+            <p class="pc-desc">They thought you'd fall apart. Enter your situation, choose your areas, pick your timeline. We build a 30-90 day plan so specific you'll post it publicly. And when you do — that's our marketing.</p>
+          </div>
+          <div style="flex-shrink: 0; text-align: right;">
+            <div class="pc-price" style="font-size: 20px; margin-bottom: 12px;">$9 / plan</div>
+            <button class="pc-btn" style="padding: 12px 24px; font-size: 14px;">BUILD MY PLAN →</button>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MAYA SECTION -->
+  <div id="maya" class="maya-section">
+    <div class="maya-card">
+      <div class="maya-avatar">⚡</div>
+      <div class="maya-text">
+        <div class="maya-title">Powered by Maya AI</div>
+        <p class="maya-sub">Every product on this page is powered by Maya — a custom AI system built by MirzaTech.ai. Maya runs the empire: generating content, posting to TikTok, creating YouTube videos, and driving traffic to every product — automatically, every single day.</p>
+        <div class="maya-platforms">
+          <div class="plat-badge" style="background:rgba(0,0,0,0.3);border-color:rgba(255,255,255,0.1);color:rgba(237,230,250,0.6);">
+            <span>📱</span> TikTok Daily Posts
+          </div>
+          <div class="plat-badge" style="background:rgba(255,0,0,0.08);border-color:rgba(255,0,0,0.2);color:#ff6666;">
+            <span>▶️</span> YouTube Videos
+          </div>
+          <div class="plat-badge" style="background:rgba(212,168,67,0.08);border-color:rgba(212,168,67,0.2);color:var(--gold);">
+            <span>⚡</span> AI-Generated
+          </div>
+          <div class="plat-badge" style="background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.2);color:#22c55e;">
+            <span>🔒</span> Your Data: Never Stored
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div id="how" class="section">
+    <div class="section-header">
+      <span class="section-eyebrow">THE PROCESS</span>
+      <h2 class="section-title">Simple. Instant. Real.</h2>
+      <p class="section-sub">No accounts needed. No waiting. Just the moment you need, handled.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num">01</span>
+        <div class="step-title">Choose Your Moment</div>
+        <p class="step-desc">Find the product built for your exact situation — grief, love, rage, dreams, family, or transformation.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">02</span>
+        <div class="step-title">Share What's Real</div>
+        <p class="step-desc">Give the AI what it needs — your situation, your words, your truth. The more real you are, the better it gets.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">03</span>
+        <div class="step-title">Receive Your Output</div>
+        <p class="step-desc">In seconds, you have something beautiful, specific, and ready — a eulogy, a song, a plan, a reading, a vow.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">04</span>
+        <div class="step-title">Share or Burn It</div>
+        <p class="step-desc">Keep it, share it, or burn it forever — no logs, no trace. Your data is yours and yours alone.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-logo">Osman.is</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">Powered by MirzaTech.ai · Property of Emaaa LLC</div>
+    </div>
+    <div class="footer-links">
+      <a href="#products">Products</a>
+      <a href="mailto:emaaallc@outlook.com">Contact</a>
+      <a href="https://mirzatech.ai">MirzaTech.ai</a>
+    </div>
+    <div class="footer-law">© 2026 Emaaa LLC. All rights reserved.</div>
+  </footer>
+
+</div>
+</body>
+</html>
