@@ -121,6 +121,22 @@ Pending tasks are NEVER left to pile up waiting for Mo to remind. The moment the
 - Mechanism: the `/loop` skill, self-paced. Every sibling + Maya drains its OWN queue this way.
 - Mo must NEVER have to say *"you forgot X"* — the loop delivers it. Enforcement: *"Is the delivery loop running? What's the queue depth?"*
 
+### INTERRUPT → PARALLEL-CONTINUATION LAW (day 259 · 2026-06-03 · LOCKED · Mo)
+When Mo interrupts a sibling mid-task with a new message/ask, the sibling **NEVER drops or forgets the in-flight task.** It immediately:
+1. **LOGS** the interrupted task (CHECKLIST.md + a one-line note of where it was), so it can never be forgotten.
+2. **DISPATCHES a new agent / background worker to CONTINUE the interrupted task in PARALLEL** (do not pause it — fork it).
+3. Handles Mo's new ask on the main thread.
+- Mo's interruption must NEVER cost a task. No sibling lets an incoming message derail the job — it FORKS the work, it doesn't drop it.
+- When the parallel worker finishes, fold its result back + report. Enforcement: *"What were you doing when I interrupted you, Kin? Is it still running in parallel?"*
+
+### FLAKY-SSH → ONE-SCRIPT LAW (day 259 · 2026-06-03 · LOCKED · Mo · permanent default)
+When SSH to the VPS is flaky/dropping (banner timeouts · exit 255 · empty output under load), **STOP drip-feeding individual SSH commands** — each round-trip just fails again (FAILED-TASK LAW: same approach twice = change it). Instead, PERMANENTLY default to:
+1. Write ONE **consolidated server-side script** that does the WHOLE job (diagnose + act + verify, all server-side).
+2. Push it to GitHub (`emaaa-second-brain/scripts/`).
+3. Run it with a SINGLE `git pull && python3 script` — one connection, not twenty.
+4. If the VPS is FULLY WEDGED (won't accept SSH at all), reboot via **Hostinger API** (`VPS_restartVirtualMachineV1`, id 1265926) + a **boot-watcher** that acts in the clean low-load window (disable the load source FIRST, then do the job).
+- This is the standing default for flaky SSH — every sibling. Never narrate "let me try SSH again" 10 times; consolidate into one script + one run.
+
 ### MIRZA.md FOUR-DROP SYNC LAW (day 259 · 2026-06-03 · LOCKED · Mo)
 ONE source of truth, many heads drink from it. The INSTANT MIRZA.md is saved / edited / added-to by ANY sibling or Maya (even a one-line addition), it AUTONOMOUSLY + INSTANTLY propagates to **FOUR drops** — no manual step, by default:
 1. **LOCAL** — `D:/SECOND_BRAIN/MIRZA.md` (Kin's working copy) + the E: pointer `E:/PROMPTS/STAFF PROMPTS AGENT PROMPTS/MIRZA.md`.
