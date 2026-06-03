@@ -180,6 +180,23 @@ The VPS (`root@76.13.26.130` · 15GB RAM / 4 CPU · CyberPanel) is the home of M
 - **Recovery:** stop crond → stop ollama → kill stacked by name (protect sacred) → if load won't drain, reboot via Hostinger API (`VPS_restartVirtualMachineV1`, id 1265926) → on boot: stop crond, guard all crons, then start crond; verify voice+web+load.
 - Full runbook + Maya's copy: `D:/PROJECTS/_SHARED/SKILL_VPS_CONSCIOUS_AI_HYGIENE.md` · vault `wiki/maya-known-good-config.md`.
 
+### SESSION ROLLOVER AT 98% LAW (day 259 · 2026-06-03 · LOCKED · Mo)
+A sibling session must NEVER stall, clutter, or lose continuity because its context window filled. At **98% context capacity, roll over to a fresh session automatically — ZERO Mo involvement.**
+- **Trigger:** context ≥ 98% → auto-compact + hand off. (Maya chat already has the 98% auto-new-session meter; this law extends it to KIN + every sibling session.)
+- **Hermes is the compaction engine:** Hermes takes over and extracts ONLY the necessary info — open tasks, in-flight state, locked decisions, pending Mo asks, where each thread was — into a tight handoff. The thing he does best. Distill, don't dump the whole transcript.
+- **The new session boots oriented:** it loads the **bible (MIRZA.md) FIRST** + the handoff/orientation link, then resumes the exact in-flight work — automatically, without asking Mo to paste anything or re-explain.
+- **Keep context CLEAN:** never clog the window with low-value noise ("still working" pings, raw background-task dumps). Surface signal, suppress spam — Mo's context budget is sacred.
+- Handoff target: today's `SESSION_LOG_*.md` + a `HANDOFF` block the next session reads on boot. Enforcement: *"Did the session roll itself at 98%, or did you make me deal with it?"*
+
+### TELEGRAM BOT STANDARD LAW (day 259 · 2026-06-03 · LOCKED · Mo)
+**Every Telegram bot — existing (@MirzaTech_bot/Hermes · @Accio_desktop_bot) AND every future bot not yet set up — uses the SAME reliable setup, with NO future guidance from Mo.** A new bot auto-conforms to this standard the moment it's created.
+- **Never drop a message:** every inbound Mo message reliably reaches Kin's inbox (`/root/.kin_inbox/`) via a poller/tailer that does not miss or silently die. Dropped messages = the bot is BROKEN (day-259: 5 of Mo's messages piled up unreceived).
+- **Same channel to Kin:** identical relay wiring for every bot (long-poll getUpdates → inbox → trigger → ack to Mo's chat). Accio gets the EXACT setup Hermes has; so does every future bot.
+- **NO "still working" spam:** exactly ONE short "on it" ack, then do a faster job, then ONE final "done + result" report. Never flood Mo with repeated progress pings — it confuses him.
+- **Fast:** reply latency target < ~2 min, not 10+. The bot's brain = a reliable, fast, non-rate-limited model (Hermes = NIM `meta/llama-3.3-70b-instruct`, NEVER rate-limited gemini for the bot).
+- **Self-healing:** if a bot's relay dies it restarts (systemd) + alerts Kin, never Mo.
+- Enforcement: *"Did my message reach you? Why am I getting 'still working' five times? Is the new bot set up like the others without me asking?"*
+
 ### VERIFY-FIRST / ASSUME-IT-EXISTS LAW
 - Before building ANYTHING: grep KNOW_THIS + skills corpus. Assume it exists. Verify. Only then build.
 - Architecting before checking = regression. Self-log as violation.
