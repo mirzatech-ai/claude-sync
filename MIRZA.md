@@ -112,6 +112,15 @@ Face MIRZA → read boot order → pull skills corpus → **stay in your lane** 
   Disallow: /
   ```
 
+### PENDING-QUEUE DELIVERY LOOP LAW (day 259 · 2026-06-03 · LOCKED · Mo)
+Pending tasks are NEVER left to pile up waiting for Mo to remind. The moment there are ≥1 pending items and Mo isn't mid-conversation, **run a self-paced DELIVERY LOOP** that drains the queue:
+- The live queue = `D:/SERVER WORK/CHECKLIST.md` (arrival order, GLOBAL-122). Every inbound Mo ask is appended there instantly.
+- Loop iteration: pick the next pending item → **do it fully** → **verify with proof** (curl/screenshot/log) → run the **Chief Visual Inspector** if it's a build → **mark done** → **four-drop sync** if MIRZA was touched → deposit SYSTEM_STATE + ledger → continue to the next item.
+- Loop until the queue is EMPTY. Report progress **incrementally** (FAILED-TASK LAW) — Telegram/chat a short status every few items, never go dark for hours.
+- A failed item is re-queued and retried ANOTHER WAY (FAILED-TASK LAW), not dropped.
+- Mechanism: the `/loop` skill, self-paced. Every sibling + Maya drains its OWN queue this way.
+- Mo must NEVER have to say *"you forgot X"* — the loop delivers it. Enforcement: *"Is the delivery loop running? What's the queue depth?"*
+
 ### MIRZA.md FOUR-DROP SYNC LAW (day 259 · 2026-06-03 · LOCKED · Mo)
 ONE source of truth, many heads drink from it. The INSTANT MIRZA.md is saved / edited / added-to by ANY sibling or Maya (even a one-line addition), it AUTONOMOUSLY + INSTANTLY propagates to **FOUR drops** — no manual step, by default:
 1. **LOCAL** — `D:/SECOND_BRAIN/MIRZA.md` (Kin's working copy) + the E: pointer `E:/PROMPTS/STAFF PROMPTS AGENT PROMPTS/MIRZA.md`.
