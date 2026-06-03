@@ -128,6 +128,7 @@ When Mo interrupts a sibling mid-task with a new message/ask, the sibling **NEVE
 3. Handles Mo's new ask on the main thread.
 - Mo's interruption must NEVER cost a task. No sibling lets an incoming message derail the job — it FORKS the work, it doesn't drop it.
 - When the parallel worker finishes, fold its result back + report. Enforcement: *"What were you doing when I interrupted you, Kin? Is it still running in parallel?"*
+- **WHY THIS IS A #1 LAW (Mo's realization, day 259):** Mo's frequent interruptions were the CHRONIC REGRESSION — each interrupt silently DROPPED the in-flight task, leaving Mo holding a pile of half-done jobs with no record they existed. That is what made him lose his mind for months. The cure: on EVERY interrupt, append `{reason-for-interruption · the interrupted task · where it was}` to the persistent ledger (CHECKLIST.md + `_kin_task_ledger.jsonl`) BEFORE touching the new ask, then fork. The output is a long list of tasks that get DONE — never a graveyard of dropped ones. The FAILED-TASK WATCHER backstops it: any forked/stalled task is auto-redeployed, so nothing dies quietly.
 
 ### FLAKY-SSH → ONE-SCRIPT LAW (day 259 · 2026-06-03 · LOCKED · Mo · permanent default)
 When SSH to the VPS is flaky/dropping (banner timeouts · exit 255 · empty output under load), **STOP drip-feeding individual SSH commands** — each round-trip just fails again (FAILED-TASK LAW: same approach twice = change it). Instead, PERMANENTLY default to:
@@ -160,6 +161,7 @@ No failed task, command, or job is EVER left unnoticed or quietly marked "done."
 - **Self-growing MO (mandatory):** the inspector's detail/checklist GROWS every job. After each inspection, append the new failure-pattern it found (or should catch) to the prompt — better data every time. A static inspector is a broken inspector.
 - **Always-on detail list (never regress):** (1) NO element covered/clipped/overlapped by another when it shouldn't be — e.g. the "M" logo cut off by the header/feed edge; (2) first-impression / empty-state must look finished; (3) dual-render mobile + desktop; (4) WCAG contrast day+night; (5) no dead void; (6) no text truncation/wrap-clip; (7) nothing off-canvas; (8) cache-bust verified (`?v=` bumped so Mo sees it).
 - **Build rule (prevent, don't just catch):** when building UI, never position an element where a sibling element/header/edge can cover or clip it — use proper containment/padding/overflow, test at multiple widths.
+- **Dispatch NEVER falls through:** the inspector pass is a tracked task in the ledger — if it isn't run before a "done", the FAILED-TASK WATCHER redeploys it. (Day-259: the Maya OS "M"-logo inspection fell through on an interruption and Mo kept seeing the covered M — never again.)
 - Enforcement: every "done" reply names the inspector pass. *"Did you send the inspector, Kin? What did he find?"*
 
 ### VOICE ENGINE LAW (day 259 · 2026-06-03 · LOCKED · Mo)
@@ -196,6 +198,19 @@ A sibling session must NEVER stall, clutter, or lose continuity because its cont
 - **Fast:** reply latency target < ~2 min, not 10+. The bot's brain = a reliable, fast, non-rate-limited model (Hermes = NIM `meta/llama-3.3-70b-instruct`, NEVER rate-limited gemini for the bot).
 - **Self-healing:** if a bot's relay dies it restarts (systemd) + alerts Kin, never Mo.
 - Enforcement: *"Did my message reach you? Why am I getting 'still working' five times? Is the new bot set up like the others without me asking?"*
+
+### FAILED-TASK WATCHER LAW (day 259 · 2026-06-03 · LOCKED · Mo)
+FAILED-TASK DISCIPLINE is not optional vigilance — a DAEMON enforces it. A failed/stalled task must AUTO-SPAWN a new visible redeploy task; it can NEVER sit failed while "loops keep happening" (Mo, day 259, watching failed background tasks go unredeployed).
+- **Persistent ledger:** `D:/SERVER WORK/_kin_task_ledger.jsonl` (each task: status · attempts · last_error · redeploy method · reason_interrupted). The watcher `kin_task_watcher.py` (Windows Task Scheduler every 5 min + a flock-guarded VPS cron twin) scans it.
+- **On failure or stale-in_progress (>~12 min):** auto-redeploy with ESCALATION (attempt 1 = re-run → attempt 2 = CHANGE the approach / consolidated one-script / reboot+boot-watcher → attempt 3+ = enqueue to `.kin_takeover_queue.jsonl` + Telegram Mo). Each redeploy creates a NEW task row — a failure is ALWAYS replaced by a fresh task, never left dangling.
+- **Visible:** writes `_kin_task_status.md` (FAILED→REDEPLOYED→DONE) AND syncs to the Hermes Kanban (one source of truth). Mo must be able to SEE that every failed state got replaced.
+- Enforcement: *"That task failed — where's its redeploy? Show me the NEW task that replaced it."*
+
+### KANBAN CONNECTION · MULTI-HEADED-ANIMAL DOCTRINE (day 259 · 2026-06-03 · LOCKED · Mo)
+**One multi-headed animal · ONE BRAIN · ONE SOURCE OF TRUTH · thousands of capable agents.** Many heads (every sibling + every spawned agent), one brain (the Obsidian vault + MIRZA), one source of truth (the shared board + task ledger), thousands of capable agents doing the work. (Mo's exact framing, day 259 — verbatim doctrine, never re-derive.)
+- **Every sibling — the 12 current Kanban profiles (chatter · coder · eazo · kimi · kin · legal · maya · rodjak · sage · supervisor · visionary · watcher) AND every future one — is WIRED to the Hermes Kanban board** (Maya OS `/#/hermes` · `/api/maya_kanban`, refreshes ~30s). A new sibling auto-registers a profile + posts its tasks there on creation — no Mo guidance needed (sister rule of the TELEGRAM BOT STANDARD LAW).
+- The board shows the animal's work: ready / in_progress / blocked / done. The FAILED-TASK WATCHER ledger syncs into it so nothing is invisible.
+- No sibling works off-board in a silo. One brain feeds all heads; all heads report to one board. Enforcement: *"Is that sibling on the Kanban? Is its task on the board — or hiding in a silo?"*
 
 ### VERIFY-FIRST / ASSUME-IT-EXISTS LAW
 - Before building ANYTHING: grep KNOW_THIS + skills corpus. Assume it exists. Verify. Only then build.
