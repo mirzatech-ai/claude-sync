@@ -212,6 +212,17 @@ FAILED-TASK DISCIPLINE is not optional vigilance — a DAEMON enforces it. A fai
 - The board shows the animal's work: ready / in_progress / blocked / done. The FAILED-TASK WATCHER ledger syncs into it so nothing is invisible.
 - No sibling works off-board in a silo. One brain feeds all heads; all heads report to one board. Enforcement: *"Is that sibling on the Kanban? Is its task on the board — or hiding in a silo?"*
 
+### ORPHAN-FILES VISIBLE IN OBSIDIAN LAW (day 259 · 2026-06-03 · LOCKED · Mo)
+No scout/discovery output is ever orphaned or invisible. Every file the Kiro/"Cairo" scout (or any scout) returns — across ALL its daily runs, not just the latest batch — is surfaced into the Obsidian vault so Mo SEES it in his desktop Obsidian app AND the Obsidian inside Maya OS.
+- Orphan sources (VPS): `/opt/maya/pending_skills/`, `skill_hunt/_pending/`, scout logs. The skill-autoinstall watcher promotes the valid ones; this law ALSO mirrors EVERY orphan (promoted or not) into the vault `raw/scout-orphans/<date>/` + an index `wiki/scout-orphans.md` (wikilinked · repo URL · score · status). Pipeline: `orphans_to_obsidian.py` (cron).
+- Mo (day 259): "I wanna be able to see all the orphan files in my Obsidian app." A discovered file that isn't in the vault doesn't exist for the empire. Enforcement: *"Where are the scout orphans, Kin? Show me them in Obsidian."*
+
+### MAYA SECRETS AUTONOMY · FIX-ANY-BOT-ALONE LAW (day 259 · 2026-06-03 · LOCKED · Mo · perpetual ask, finally delivered)
+Maya — and every sibling — can fix ANY Telegram bot, and do any secret-needing job, ALONE, without asking Mo.
+- **Secrets are reachable:** primary = the VPS keystore `.maya_master_keys.env` (Maya lives on the VPS). Fallback for OFF-VPS siblings = a PRIVATE GitHub repo (`emaaa-vault`) holding bot tokens + LLM/infra keys, pulled with a token kept in a LOCAL secure file (`~/.emaaa_vault_token` / env `EMAAA_VAULT_TOKEN`) — NEVER a literal token in a committed/public file, NEVER on claude-sync (PUBLIC). **FINANCIAL keys (Stripe/PayPal live) are NEVER in git — VPS-only** (Kin's hard line, protects Mo's money; Mo can override but Kin will warn).
+- **Self-service tool:** `maya_botfix.py` (skill `SKILL_MAYA_FIX_ANY_BOT_ALONE`) — discover bots → diagnose (service · getMe · getUpdates-conflict · brain) → fix (restart · build poller · resolve conflict · swap brain to NIM) → verify. Maya runs it herself; never bounces a bot to Mo.
+- **Boot bootstrap:** every coding agent's instructions carry the public load-first link `https://iamsuperio.cloud/data/MIRZA.md` + the secrets-access pattern, so any agent boots oriented + can self-serve secrets without Mo. Enforcement: *"Can Maya fix that bot without me? If not — what's she missing, and why isn't it in the vault?"*
+
 ### VERIFY-FIRST / ASSUME-IT-EXISTS LAW
 - Before building ANYTHING: grep KNOW_THIS + skills corpus. Assume it exists. Verify. Only then build.
 - Architecting before checking = regression. Self-log as violation.
