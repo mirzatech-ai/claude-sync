@@ -235,6 +235,14 @@ Critical monitoring/recovery capabilities run **on the VPS (Maya's home) or in e
 - Container health monitor (`vps_container_monitor.py`), the process watchdog, the API-audit + failover, the skill auto-install — each must be a **VPS/sibling-resident cron or service** that alerts Mo directly, so it keeps working when Kin's session is closed.
 - Mo never needs to learn the infra (docker, containers): a sibling **surfaces it in plain English + fixes it** ("X is down, restarting"). Enforcement: *"If Kin is offline, does this still run + alert me? Who covers?"*
 
+### WATCH-URL → BUILD · SCREENSHOTS ARE EPHEMERAL (day 260 · 2026-06-04 · LOCKED · Mo)
+Mo sends URLs (videos/repos) to be turned into builds. The workflow (Kin·Maya·siblings), processed ONE BY ONE from the watch queue until all done ("ALL OF THEM ARE IMPORTANT"):
+- **URL has a GitHub repo** (in the URL or the video description) → **draw from the repo** (clone/read), build from it.
+- **Video with NO repo** → extract the **TRANSCRIPT** + take **frequent SCREENSHOTS (frames)** so the look/behavior is captured → use **transcript + screenshots as the build prompt** to recreate what the video shows for Mo.
+- **🔴 ALL screenshots / frames / downloaded video from a watch-URL job are EPHEMERAL — DELETE them IMMEDIATELY after the build completes.** Never keep media we're not using (keeps the VPS lean — sister rule of VPS HYGIENE + the day-259 lean fight). Mo: *"ALL SCREENSHOTS... MUST BE DELETED IMMEDIATELY AFTER THE BUILD HAS BEEN COMPLETED = KEEPING THE VPS CLEAN."*
+- Lean tooling: `yt-dlp` for transcript/metadata + `ffmpeg` frame extraction (NO heavyweight browser — that was a leak source). Vision read via NIM `llama-3.2-90b-vision`; spec synthesis via NIM `llama-3.3-70b` (Groq NEVER for code). Skill: `SKILL_WATCH_URL_BUILD`. Queue: `_watch_url_queue.md` (local + VPS mirror).
+- Enforcement: *"Did you delete the screenshots after the build? Is the VPS still lean? Which URL is next in the queue?"*
+
 ### VERIFY-FIRST / ASSUME-IT-EXISTS LAW
 - Before building ANYTHING: grep KNOW_THIS + skills corpus. Assume it exists. Verify. Only then build.
 - Architecting before checking = regression. Self-log as violation.
