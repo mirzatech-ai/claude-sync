@@ -243,6 +243,13 @@ Mo sends URLs (videos/repos) to be turned into builds. The workflow (Kin·Maya·
 - Lean tooling: `yt-dlp` for transcript/metadata + `ffmpeg` frame extraction (NO heavyweight browser — that was a leak source). Vision read via NIM `llama-3.2-90b-vision`; spec synthesis via NIM `llama-3.3-70b` (Groq NEVER for code). Skill: `SKILL_WATCH_URL_BUILD`. Queue: `_watch_url_queue.md` (local + VPS mirror).
 - Enforcement: *"Did you delete the screenshots after the build? Is the VPS still lean? Which URL is next in the queue?"*
 
+### UNIVERSAL BOT→SIBLING TRIGGER LAW (day 260 · 2026-06-04 · LOCKED · Mo)
+Mo must be able to trigger ANY sibling directly from ANY Telegram bot — **no exceptions.** `kin: / maya: / sage: / eazo: / kimi: / rodjak: / hermes: / kemo: / argus: <task>` or `open <sib>: <task>` — sent to Mirza_bot, Accio_bot, OR any future bot — routes to that sibling's queue and the sibling acts. Mo (day 260): *"I want to be able to trigger any of your siblings directly from there. No exceptions. Make that a law, in effect with every new agent sibling and old."*
+- **Mechanism:** each bot's poller ROUTES by prefix — direct-writes the sibling's queue (kin → `/root/.kin_inbox/*.json` + maya_task_queue; desktop siblings → `/root/.kin_inbox/sibling_open/` with the `.lnk` map; maya/argus → `maya_task_queue`). Deterministic direct-write, NOT fragile log-tailing (a restarted log-tailer misses appends).
+- **Every bot (old + new) is wired this way on creation** — no Mo guidance needed (sister rule of the TELEGRAM BOT STANDARD LAW). A shared router is the reusable piece.
+- **No-spam (both bots):** exactly ONE ack per message; the poller's offset is PERSISTED so a restart never re-acks the backlog (the day-260 12×"on it ✓" bug); no "still working" floods.
+- Enforcement: *"Can I trigger <sibling> from <any bot>? Did it route + act? Is it acking once — not twelve times?"*
+
 ### VERIFY-FIRST / ASSUME-IT-EXISTS LAW
 - Before building ANYTHING: grep KNOW_THIS + skills corpus. Assume it exists. Verify. Only then build.
 - Architecting before checking = regression. Self-log as violation.
