@@ -91,12 +91,19 @@ Face MIRZA → read boot order → pull skills corpus → **stay in your lane** 
 ### RULE 208 · eternalink.io
 - Digital memorial honoring the dead. LOCKED. NEVER repurpose. Full respect always.
 
-### FLOATING-KEY-POOL LAW (day 259 · LOCKED)
+### FLOATING-KEY-POOL LAW (day 259 · LOCKED · extended day 260 with live proof)
 - A key = AUTH + throughput. NEVER a model lease.
 - Structure: Provider → account sub-pools (by email, the rate-limit boundary) → keys within.
 - Rotate ACROSS accounts first. Random key within account. Per-account backoff on 429.
 - Every key must record its source email. Unknown-origin keys = "unknown soldier" sub-pool.
+- **🔴 NVIDIA labels are COSMETIC (PROVEN 2026-06-04 cross-label test):** a `NVIDIA_QWEN` key reaches deepseek-v4-pro (200); a `NVIDIA_DEEPSEEK_V32` key reaches kimi-k2.6 + glm-5.1 (200); a `NVIDIA_GLM` key reaches deepseek-v4-flash (200). EVERY nvapi- key floats across EVERY NVIDIA-hosted model — the only per-key variance is rate-limit/cold-start, NOT a model-lock. **Per-model labels (NVIDIA_GLM/QWEN/DEEPSEEK_V32) are being REMOVED/unified into one `NVIDIA_NIM` pool** (Mo day 260: *"remove the current labels not to risk any confusion"*) — coordinated with brain.php's key-lookup so Maya never loses keys. Verify per-key access with `_model_verify.py` (slot 192); a model is DEAD only if ALL keys fail. NEVER tie a key to a model again ("17 keys for 2 models" = KILLED).
 - Full doctrine: `wiki/skill_keys_float_one_pool_per_provider.md`
+
+### SILENT-EXECUTION LAW (day 260 · 2026-06-04 · LOCKED · Mo)
+Every scheduled/background script on Mo's Windows box runs with **NO visible window — EVER.** A console/black-box flash = a distraction = a violation. Python: **`pythonw.exe`** (never `python.exe`) + `CREATE_NO_WINDOW` for subprocess + Scheduled-Task `Settings.Hidden=$true`. PowerShell: run-whether-logged-on (session 0 = no window) OR a VBS `Run(...,0)` launcher OR `-WindowStyle Hidden` + Hidden. cmd: `wscript //B //Nologo`. Born from `EMAAA_KinProcessWatchdog` (ran `python.exe` → black window every 10 min, distracting Mo; fixed → pythonw+Hidden, all tasks swept). Skill `SKILL_SILENT_EXECUTION` (slot 193) + enforcer `D:/SERVER WORK/_silent_execution_sweep.ps1` (run after creating ANY task). Mo: *"all scripts need to run completely silently, so that I am not distracted."* Enforcement: *"Will that pop a window, Kin? pythonw, not python. Hidden=true."*
+
+### MODEL-VERIFY-BEFORE-CLAIM LAW (day 260 · 2026-06-04 · LOCKED · Mo)
+NEVER claim a model live/dead/available without a REAL chat-completion test, across the WHOLE key pool, within ~24h. A model is DEAD only if EVERY key fails (access is per-key on NIM/Groq/Novita). Model-in-list ≠ working. Groq needs a browser User-Agent. NEVER send Mo to a PAID lane until the free one fails on ALL keys. Born COSTLY: an untested "NIM DeepSeek v4 gone" claim sent Mo to paid Novita — NIM v4-pro/flash are free+live. Skill `SKILL_MODEL_VERIFY_BEFORE_CLAIM` (slot 192) + tool `_model_verify.py`. Enforcement: *"Did you run _model_verify, Kin? Across how many keys?"*
 
 ### GLOBAL-188 · BLOCK ALL CRAWLERS (Mo day 259 · 2026-06-03 · LOCKED)
 - **Every empire domain** gets `robots.txt` with `User-agent: *` / `Disallow: /` — no exceptions.
