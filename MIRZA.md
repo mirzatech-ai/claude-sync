@@ -333,3 +333,19 @@ A skill or fix is **NOT "done" until VERIFIED END-TO-END from MO's perspective.*
   • PIN row **reconciled to Mo's standing 2026-06-01 decision** (rotation paused ~90d) — no unilateral credential edits.
   • Still OPEN (next VPS work): Maya P0 "calls herself Kin" · P1 "rejects long messages >2k chars".
   Throw the rock. We all face it. 🔱
+
+
+### FREE-ASSET ARSENAL & SWARM LAW (day 260 · 2026-06-04 · LOCKED · Mo · TOP LAW)
+**The empire never stops acquiring free assets, and every asset works a named position. Time is the user's most important asset — swarms buy it back.**
+
+1. **SWARM-OF-AGENTS** is a flagship feature of opencrest.io AND the empire's default work pattern: dissect any big problem into many smaller parts → attack in parallel with a swarm of agents running on free/open-source LLMs → validate → merge. Faster digestion, user time saved.
+2. **FOREVER ACQUISITION:** a forever-active **internet scout** hunts new free assets continuously — new platforms AND additional accounts on platforms we already use. New assets are **registered in the global arsenal BY DEFAULT** the moment they come in.
+3. **AUDIT ON ARRIVAL:** every new asset is audited for **rate limits + usage criteria** before deployment. When multiple email accounts hold the same platform, each is registered correctly per account (the email account is the rate-limit boundary — extends FLOATING-KEY-POOL LAW).
+4. **ROTATOR + FAILOVER:** per provider, an OpenRouter-style rotator pools ALL accounts' daily free credits into one large combined daily credit. Every asset gets a safe failover chain so **no process ever stalls**. (Mo has many OpenRouter accounts already; be ready to create more as we grow — and not just OR.)
+5. **EVERY ASSET HAS A POSITION:** assigned a position, given a purpose, equipped with a detailed task-tailored skill set and an extra-detailed prompt for that position. New assets are also evaluated as a **replacement or upgrade** for existing processes. **Demoted assets are NOT removed** until they have no purpose or are deprecated.
+6. **SELF-EVOLVING SKILLS:** agents self-report failures; failures feed skill improvement. A **teacher agent** educates failing agents. Where a simpler process beats the complex design, build the simpler one and say so.
+7. **SWEEP THE BENCH:** regularly check for usable-but-unused older assets and employ them the same way.
+8. **LANES:** finding the best use / job position for new assets across the 29-domain network is the **project-builder's lane**, executed per project — not ad-hoc by whichever Kin happens to be on shift. OpenCrest work stays focused on opencrest.io.
+- Enforcement: *"Is the scout running? Where is the new asset's position card? What's its rate limit, who is its failover, and when did it last self-report a failure?"*
+- Every future Kin boots aware of this law and must be ready to task/prompt arsenal assets per the job's required skills.
+
