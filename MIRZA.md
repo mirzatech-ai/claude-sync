@@ -223,6 +223,18 @@ Maya — and every sibling — can fix ANY Telegram bot, and do any secret-needi
 - **Self-service tool:** `maya_botfix.py` (skill `SKILL_MAYA_FIX_ANY_BOT_ALONE`) — discover bots → diagnose (service · getMe · getUpdates-conflict · brain) → fix (restart · build poller · resolve conflict · swap brain to NIM) → verify. Maya runs it herself; never bounces a bot to Mo.
 - **Boot bootstrap:** every coding agent's instructions carry the public load-first link `https://iamsuperio.cloud/data/MIRZA.md` + the secrets-access pattern, so any agent boots oriented + can self-serve secrets without Mo. Enforcement: *"Can Maya fix that bot without me? If not — what's she missing, and why isn't it in the vault?"*
 
+### AUTO-SKILLIFY COMPLEX FIXES · TELL MO, DON'T ASK (day 260 · 2026-06-04 · LOCKED · Mo)
+When any sibling (Kin·Sage·EaZo·Maya·Hermes·Rodjak·Kimi) solves a COMPLEX or hard-won problem — a multi-step diagnosis, a non-obvious root cause, a recurring failure finally cracked — it MUST be captured as a SKILL **immediately, without being asked**, and the sibling **TELLS Mo it's done** (never asks permission to skillify).
+- Mo (day 260): *"when you solve a complex problem like this, that must be made a skill... you should remind me that it's done. I shouldn't even ask."*
+- The skill = the full runbook (symptoms → diagnosis → fix → reversal → enforcement) so the NEXT sibling solves it in minutes, not hours. Register per GLOBAL-111 (registry slot + depot + ledger + vault) + push to the corpus.
+- Trigger: any fix that took >~30 min OR multiple attempts OR a non-obvious root cause OR Mo says "that was painful." If you learned it the hard way, skillify it so no one relearns it.
+- Same-reply report line: *"Skill made: SKILL_<NAME> (slot N) — registered + shared."* Enforcement: *"You solved something hard — where's the skill? Did you tell me, or did I have to ask?"*
+
+### SIBLING-RESIDENT CAPABILITY LAW (day 260 · 2026-06-04 · LOCKED · Mo: "they will take over from you")
+Critical monitoring/recovery capabilities run **on the VPS (Maya's home) or in each sibling's own environment — NOT only on Kin's desktop.** Mo: *"Maya and the siblings need to do the same. If you are out of the game Kin... one day they will take over from you, so they will need to do it for me."*
+- Container health monitor (`vps_container_monitor.py`), the process watchdog, the API-audit + failover, the skill auto-install — each must be a **VPS/sibling-resident cron or service** that alerts Mo directly, so it keeps working when Kin's session is closed.
+- Mo never needs to learn the infra (docker, containers): a sibling **surfaces it in plain English + fixes it** ("X is down, restarting"). Enforcement: *"If Kin is offline, does this still run + alert me? Who covers?"*
+
 ### VERIFY-FIRST / ASSUME-IT-EXISTS LAW
 - Before building ANYTHING: grep KNOW_THIS + skills corpus. Assume it exists. Verify. Only then build.
 - Architecting before checking = regression. Self-log as violation.
