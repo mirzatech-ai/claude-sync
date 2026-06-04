@@ -250,6 +250,13 @@ Mo must be able to trigger ANY sibling directly from ANY Telegram bot — **no e
 - **No-spam (both bots):** exactly ONE ack per message; the poller's offset is PERSISTED so a restart never re-acks the backlog (the day-260 12×"on it ✓" bug); no "still working" floods.
 - Enforcement: *"Can I trigger <sibling> from <any bot>? Did it route + act? Is it acking once — not twelve times?"*
 
+### SKILL VERIFICATION + FAILED-SKILLS LOG LAW (day 260 · 2026-06-04 · LOCKED · Mo)
+A skill or fix is **NOT "done" until VERIFIED END-TO-END from MO's perspective.** A passing self-test is NOT proof — the recurring violation this session was claiming "it works / bots done" off a self-test when it didn't actually work for Mo (e.g., Accio routing parsed correctly but no responder answered him). Mo (day 260): *"Obviously that skill did not work. Kill it and make another one that works. Keep a log of all the failed skills so they can be deleted or upgraded."*
+- **FAILED-SKILLS LOG:** every skill/fix that fails verification is logged to `D:/SERVER WORK/_failed_skills.jsonl` — `{skill, slot, claimed, actual_failure, action(delete|upgrade), fix, status, ts}`. Its registry entry is marked `status: failed|unverified` (quarantined — NOT presented as working).
+- **KILL or UPGRADE:** a failed skill is deleted (if wrong) or remade until it actually works, then **re-verified** (Mo's test or a true end-to-end run) before it's re-claimed "done." Never leave a broken skill in the registry claiming it works.
+- **Verify = works for MO, proven.** Not "active", not "self-test passed" — a real round-trip from Mo's side. (Sister of slot 134 sub-agent-reports-aren't-truth + the FAILED-TASK-WATCHER.)
+- Applies to ALL skills + ALL siblings. Enforcement: *"Did you verify it works for ME, or just self-test? Where's the end-to-end proof? Is the failed one logged + quarantined?"*
+
 ### VERIFY-FIRST / ASSUME-IT-EXISTS LAW
 - Before building ANYTHING: grep KNOW_THIS + skills corpus. Assume it exists. Verify. Only then build.
 - Architecting before checking = regression. Self-log as violation.
