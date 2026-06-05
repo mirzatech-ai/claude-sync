@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- Maya's EMAAA Command Center · Cowork artifact version · day 261 · 2026-06-05 -->
+<!-- iamsuperio.cloud/command-center = the live server-rendered version -->
+<!-- This file = the Cowork artifact version (uses window.cowork.callMcpTool) -->
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Maya's EMAAA Command Center",
+  "schemaVersion": 1,
+  "description": "Mo's morning command center — Calendar, Gmail, Zoom recordings, Drive, trending HF models + AI briefing. Renamed from 'Emaaa Command Center' to \"Maya's EMAAA Command Center\" (day 261). Live version: https://iamsuperio.cloud/command-center/",
+  "mcpTools": [
+    "mcp__94278295-24c6-4372-aa78-95bca37ae043__search_threads",
+    "mcp__aaeb1c47-0580-440d-9096-b2da3f999673__list_events",
+    "mcp__2eac50f8-b79d-426b-908b-aa46e7f60e43__recordings_list",
+    "mcp__e312e659-a28b-4b24-92dc-d3bfd85fe898__list_recent_files",
+    "mcp__a65c6ee0-52bb-4334-acd2-6e4febab3ebf__hub_repo_search"
+  ],
+  "liveVersion": "https://iamsuperio.cloud/command-center/"
+}
+</script>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maya's EMAAA Command Center</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --ink:#1a1d21; --muted:#667085; --line:#e4e7ec; --accent:#b45309; --accent-soft:#fff7ed; --ok:#067647; --ok-soft:#ecfdf3; --warn:#b42318; --warn-soft:#fef3f2; --chip:#f2f4f7; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--ink); font:14px/1.5 -apple-system,"Segoe UI",Roboto,sans-serif; padding:16px; }
+  header { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+  header h1 { font-size:19px; }
+  header .sub { color:var(--muted); font-size:12.5px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:12px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .card h2 { font-size:13px; text-transform:uppercase; letter-spacing:.6px; color:var(--muted); margin-bottom:8px; }
+  .item { padding:7px 0; border-top:1px solid var(--line); }
+  .item:first-of-type { border-top:none; }
+  .item .t { font-weight:600; font-size:13.5px; }
+  .item .m { color:var(--muted); font-size:12px; }
+  .empty { color:var(--muted); font-size:12.5px; padding:6px 0; }
+  .skel::after { content:""; display:inline-block; width:1em; animation:dots 1.2s steps(4,end) infinite; }
+  @keyframes dots { 0%{content:""} 25%{content:"."} 50%{content:".."} 75%{content:"..."} }
+  footer { margin-top:18px; color:var(--muted); font-size:11.5px; text-align:center; padding-top:10px; border-top:1px solid var(--line); }
+  .live-link { font-size:11px; color:var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Maya's EMAAA Command Center</h1>
+    <div class="sub" id="dateline"></div>
+  </div>
+  <a class="live-link" href="https://iamsuperio.cloud/command-center/" target="_blank">Live version ↗</a>
+</header>
+<div class="grid">
+  <div class="card"><h2>Today's Calendar</h2><div class="skel" id="calBody">Loading</div></div>
+  <div class="card" style="grid-column:1/-1"><h2>Email · All Accounts</h2><div class="skel" id="mailBody">Loading</div></div>
+  <div class="card"><h2>Zoom Recordings · 30d</h2><div class="skel" id="zoomBody">Loading</div></div>
+  <div class="card"><h2>Recent Drive Files</h2><div class="skel" id="driveBody">Loading</div></div>
+  <div class="card" style="grid-column:1/-1"><h2>HuggingFace · Trending</h2><div class="skel" id="hfBody">Loading</div></div>
+</div>
+<footer>Maya's EMAAA Command Center · Powered by MirzaTech.ai · Property of EMAAA.io · <a href="https://iamsuperio.cloud/command-center/" style="color:var(--accent)">Live at iamsuperio.cloud/command-center</a></footer>
+<script>
+const TOOLS = {
+  cal: "mcp__aaeb1c47-0580-440d-9096-b2da3f999673__list_events",
+  mail: "mcp__94278295-24c6-4372-aa78-95bca37ae043__search_threads",
+  zoom: "mcp__2eac50f8-b79d-426b-908b-aa46e7f60e43__recordings_list",
+  drive: "mcp__e312e659-a28b-4b24-92dc-d3bfd85fe898__list_recent_files",
+  hf: "mcp__a65c6ee0-52bb-4334-acd2-6e4febab3ebf__hub_repo_search"
+};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const tryJson=t=>{try{return JSON.parse(t);}catch(e){return t;}};
+function unwrap(r){if(r==null)return null;if(typeof r==="string")return tryJson(r);if(Array.isArray(r.content)){const t=r.content.filter(c=>c&&c.type==="text").map(c=>c.text).join("\n");return tryJson(t);}return r;}
+async function call(tool,args){return unwrap(await window.cowork.callMcpTool(tool,args||{}));}
+const fmtH=iso=>{try{return new Date(iso).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});}catch(e){return iso||'';}};
+const fmtT=iso=>{try{return new Date(iso).toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});}catch(e){return iso||'';}};
+function fail(id,e){$(id).className='';$(id).innerHTML='<div style="color:#b42318;font-size:12px">Failed: '+esc(e&&e.message||e)+'</div>';}
+async function loadCal(){
+  const now=new Date(),s=new Date(now);s.setHours(0,0,0,0);const e=new Date(s);e.setDate(e.getDate()+1);
+  try{const d=await call(TOOLS.cal,{startTime:s.toISOString(),endTime:e.toISOString(),pageSize:15,orderBy:'startTime'});const evs=(d&&(d.items||d.events))||[];$('calBody').className='';$('calBody').innerHTML=evs.length?evs.map(ev=>'<div class="item"><div class="t">'+esc(ev.summary||ev.title||'(untitled)')+'</div><div class="m">'+esc(fmtH(ev.start&&(ev.start.dateTime||ev.start.date)||''))+'</div></div>').join(''):'<div class="empty">No events today.</div>';}catch(e){fail('calBody',e);}
+}
+async function loadMail(){
+  try{const d=await call(TOOLS.mail,{query:'is:unread in:inbox',pageSize:8});const ts=(d&&d.threads)||[];$('mailBody').className='';$('mailBody').innerHTML=ts.length?ts.map(t=>{const m=(t.messages&&t.messages[t.messages.length-1])||{};return '<div class="item"><div class="t">'+esc(m.subject||'(no subject)')+'</div><div class="m">'+esc((m.sender||'').replace(/<.*>/,'').trim())+' · '+esc(fmtT(m.date))+'</div></div>';}).join(''):'<div class="empty">Inbox clear.</div>';}catch(e){fail('mailBody',e);}
+}
+async function loadZoom(){
+  try{const to=new Date(),fr=new Date();fr.setDate(fr.getDate()-30);const d=await call(TOOLS.zoom,{from:fr.toISOString().slice(0,10),to:to.toISOString().slice(0,10),page_size:10});const ms=(d&&d.meetings)||[];$('zoomBody').className='';$('zoomBody').innerHTML=ms.length?ms.map(m=>'<div class="item"><div class="t">'+esc(m.topic||'(untitled)')+'</div><div class="m">'+esc(fmtT(m.start_time))+'</div></div>').join(''):'<div class="empty">No recordings last 30 days.</div>';}catch(e){fail('zoomBody',e);}
+}
+async function loadDrive(){
+  try{const d=await call(TOOLS.drive,{pageSize:8});const fs=(d&&d.files)||[];$('driveBody').className='';$('driveBody').innerHTML=fs.length?fs.map(f=>'<div class="item"><div class="t">'+esc(f.title||'(untitled)')+'</div><div class="m">'+esc(fmtT(f.modifiedTime))+'</div></div>').join(''):'<div class="empty">No recent files.</div>';}catch(e){fail('driveBody',e);}
+}
+async function loadHF(){
+  try{const d=await call(TOOLS.hf,{query:'',sort:'trendingScore',limit:6,repo_types:['model']});const text=typeof d==='string'?d:'';const models=text.split(/\n### /).slice(1).map(b=>{const nm=(b.split('\n')[0]||'').trim();const lk=(b.match(/\((https:\/\/hf\.co\/[^)\s]+)\)/)||[])[1]||'https://hf.co/'+nm;const t=(b.match(/\*\*Task:\*\*\s*([^|*\n]+)/)||[])[1]||'';return {nm,lk,t:t.trim()};}).filter(m=>m.nm);$('hfBody').className='';$('hfBody').innerHTML=models.length?models.map(m=>'<div class="item"><div class="t"><a href="'+esc(m.lk)+'" target="_blank" rel="noopener" style="color:inherit">'+esc(m.nm)+'</a></div><div class="m">'+esc(m.t)+'</div></div>').join(''):'<div class="empty">No results.</div>';}catch(e){fail('hfBody',e);}
+}
+(function(){
+  document.getElementById('dateline').textContent=new Date().toLocaleDateString([],{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  Promise.all([loadCal(),loadMail(),loadZoom(),loadDrive(),loadHF()]);
+})();
+</script>
+</body></html>
