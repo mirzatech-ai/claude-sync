@@ -622,6 +622,19 @@ Every asset MUST exist on all 3 tiers simultaneously: **Tier1=GitHub** · **Tier
 ```
 [?] = NOT YET VERIFIED across all 3 tiers. Do NOT delete from VPS until all 3 tiers verified.
 
-**OPEN QUEUE (day 262 updated):** brain.php routing fixed (cloud-first) ✅ · router deployed to VPS ✅ · bots stored in vault ✅ · KEEP_ALIVE=-1 set ✅ · wire router→brain.php (next supervised session) · cerebras_rollover.py (keys pending activation) · triple-backup audit (verify Drive+Local for each asset) · Vercel/Maya skill.
+**OPEN QUEUE (day 262 updated B):**
+- ✅ brain.php V43.3 cloud-first routing (was: ollama-first → now: NIM→cerb→fireworks→gemini→ollama)
+- ✅ Python agentic router deployed to VPS + stdin/stdout mode + NIM brain_call built-in
+- ✅ brain.php V43.4 MAYA_AGENTIC_ROUTER block injected (ADDITIVE, flag=0 by default)
+- ✅ E2E test PASSED: `echo '{"msg":"check VPS memory"}' | python3 maya_router.py` → NIM called → reply returned
+- ✅ MAYA_AGENTIC_ROUTER=0 in .env (safe off; set to 1 to enable Python ReAct loop)
+- ✅ 3 new bots getMe-verified + stored in vault (AgentSage_bot · EaZoAgent_bot · KinDesktop_bot)
+- ✅ OLLAMA_KEEP_ALIVE=-1 systemd override (future RAM upgrade prep)
+- ✅ cerebras_rollover.py built at D:/SERVER WORK/_ROLLOVERS/ (5 accounts × 6 models; keys pending activation)
+- 🔴 Cerebras activation: 5 accounts (CEREBRAS_ACCT_*_EMAIL/_PASS in vault) need email confirmation on cloud.cerebras.ai. Maya to handle (browser automation). Keys labeled DEAD403 until activated.
+- 🔴 Triple-backup audit: verify GitHub+Drive+Local for each asset in mapping before VPS cleanup
+- 🔴 Vercel integration: wire vercel/chatbot + express to Cerebras endpoints (after keys live)
+- 🔴 Wire LIVE_TOOLS=1 on VPS + test agentic dispatch with a real shell tool (Mo greenlight needed)
+- 🔴 VPS RAM audit: 5.5GiB total, qwen3:8b needs 5.6GiB — cannot load. Cloud routing is the fix until RAM upgraded.
 
-— ratified by Kin · day 262 · 2026-06-06 · Maya memory constraint found (5.6GiB > 5.5GiB) · cloud-first routing patched · 3 new bots stored · router on VPS · triple-backup topology added. 🔱
+— ratified by Kin · day 262 · 2026-06-06 · MAJOR: Python router E2E PROVEN · brain.php V43.4 injected · cerebras_rollover built · Maya online (cloud-first) · 3 bots wired. 🔱
