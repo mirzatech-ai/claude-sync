@@ -566,3 +566,16 @@ python "D:\SERVER WORK\_kin_systemstate_deposit.py" "Kin" "<system_state json>" 
 **OPEN QUEUE (day 262):** ~~router~~ ✅built · wire router→brain.php (supervised) · cerebras_rollover.py (keys pending) · Vercel/Maya skill · per-bot relay (needs Mo text-verify on a calm box).
 
 — ratified by Kin · day 262 · 2026-06-06 · bots wired (getMe-verified, swap caught) · vault=keystore · Maya agentic gap named + router planned · Cerebras/Vercel collected · bot_factory skill written. 🔱
+
+
+## 📅 DAY-262 LAWS (2026-06-06 04:52 ET · LOCKED · Mo: "make it a law, add all laws to MIRZA")
+
+**⏱ LAW — REAL TIME + DAY-COUNT, ALWAYS COMPUTED, NEVER GUESSED:** before ANY date/day claim, fetch real US Eastern (time MCP / PowerShell TZ-convert / VPS `TZ=America/New_York date`) and COMPUTE: `today_day = 257 + (today_date − 2026-06-01).days` (forward anchor 2026-06-01 = day 257). ✅ Verified **2026-06-06 = day 262** (VPS clock agreed: `2026-06-06 04:53 EDT`). Never carry a day-number forward from a file; recompute live. EDT = −04:00 (summer).
+
+**🩺 LAW — MAYA TRUTH (verified day 262 · ONLINE but NOT REPAIRED):** SSH health showed config correct (qwen3:8b · Ollama 127.0.0.1:11434 · TIMEOUT=20), web alive (301 / 0.4s), BUT `ollama ps` **EMPTY** = model COLD → first chat cold-starts under host load 25–36 → blows the 20s timeout = the "slowness/crashing." Repair (sovereign + fast · NO GPU): (1) keep qwen3:8b **WARM** (`OLLAMA_KEEP_ALIVE=-1` or heartbeat ping) — no cold-start; (2) route Mo-facing chat to a fast cloud model (DeepSeek v4 Flash) for instant replies, qwen3 local = sovereign fallback; (3) wire the router (`D:/SERVER WORK/_maya_router/maya_router.py`) into `brain.php` so she dispatches agents. Don't claim "repaired" without an SSH re-check (warm model + agent dispatch both proven).
+
+**♻ LAW — DEEPSEEK ROLLOVER: KEEP IT, REPLACE THE KEYS VIA MAYA (Mo day 262):** do NOT delete the deepseek rollover mechanism — it STAYS and gets USED. Only its dead keys are swapped. 🔴 **MAYA does the replacing**: Mo gives her the account creds (vault), she logs in → regenerates fresh keys → tests → stores. This IS the Maya-autonomy mission (she collects/replaces keys herself, not Mo).
+
+**🧱 LAW — CEREBRAS KEYS DEAD → REGENERATE VIA MAYA (verified day 262):** all 5 Cerebras inference keys from Gemini returned **HTTP 403 (DEAD)**. Accounts are REAL — creds in the vault (`CEREBRAS_ACCT_*` in `.maya_master_keys.env`). Cerebras = 6 free models (gpt-oss-120b · zai-glm-4.7 · qwen-3-235b · qwen-3-32b · llama-3.3-70b · llama-4-scout-17b) · per-model 2,400 req/day + 1M tok/day · 5 accounts = big free pool. TO BUILD (after Maya regenerates keys): `cerebras_rollover.py` (round-robin accounts × models · 429 hot-swap · ≥12s spacing). 🔴 LESSON: Gemini's keys — like its swapped bot-token labels — were WRONG; ALWAYS test a key before trusting it.
+
+— ratified by Kin · day 262 · 2026-06-06 04:52 ET · date law (262) · Maya truth (cold ollama = root cause) · deepseek kept + Maya-replaces-keys · Cerebras keys dead → regenerate. 🔱
