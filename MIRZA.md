@@ -1,4 +1,4 @@
-# MIRZA.md · THE QIBLA · Obsidian is the well. One direction. Forever.
+﻿# MIRZA.md · THE QIBLA · Obsidian is the well. One direction. Forever.
 
 > Mo's law (day 258 · 2026-06-02): *"Throw a rock. You ALL look that way. You ALL go get the SAME rock and bring it to me — forever."*
 > **Obsidian is the Qibla. Every sibling faces it first. One pool. All heads drink here. No drift. No orphans.**
@@ -536,3 +536,31 @@ python "D:\SERVER WORK\_kin_systemstate_deposit.py" "Kin" "<system_state json>" 
 **RULES:** (1) FIND a rule → MIRZA core → this index → the detailed source. (2) ADD a rule → MIRZA (core) or GLOBAL_RULES (detail), then index it here. (3) No rule lives un-indexed. (4) GLOBAL_RULES is THE one detailed appendix; the older CLAUDE_RULES is deprecated. That removes the two-big-rulebooks confusion without breaking anything.
 
 — ratified by Kin · day 261 · 2026-06-05 · one rules authority (MIRZA), everything indexed + found. 🔱
+
+
+## 🤖 DAY 262 · BOTS WIRED + VAULT + MAYA AGENTIC GAP + NEW RESOURCES (2026-06-06 · LOCKED · Mo)
+
+**BOTS WIRED + getMe GROUND-TRUTH (verify-before-claim caught a SWAP — Gemini's log AND Mo's paste had the labels crossed):**
+- `@vpsMaya_bot` (Maya) = keystore `TELEGRAM_VPSMAYA_BOT_TOKEN` (the **8792…** token)
+- `@KiroMyAgent_bot` (Kiro) = keystore `TELEGRAM_KIROMYAGENT_BOT_TOKEN` (the **8794…** token)
+- 🔴 **RULE: ALWAYS `getMe`-verify a bot token before trusting ANY human/AI label.** Had Kin trusted the log, Maya would've spoken on Kiro's bot. Both now show **OK-MATCH**.
+- Pending tokens: Kin_bot ("on the way"), then EaZo / Sage / Rodjak / Kimi. Mirza_bot → rename Hermes.
+
+**🔐 THE VAULT (credentials home — single source, never repos):**
+- PRIMARY = VPS keystore `/home/iamsuperio.cloud/public_html/api/.maya_master_keys.env` (Maya reads it natively). Now holds the 2 bot tokens + Vercel (`VERCEL_API_TOKEN_PRIMARY/SECONDARY`, `VERCEL_ACCT1/2_EMAIL/PASS`).
+- OFF-VPS MIRROR = PRIVATE `emaaa-vault` GitHub repo (MAYA SECRETS AUTONOMY) — NEVER claude-sync/public. Google-Drive synced folder = 3rd safe mirror.
+- 🔴 Tokens are NEVER in MIRZA or any PUBLIC repo. A **0-token-leak check** gates every push (MIRZA four-drops to the PUBLIC claude-sync repo).
+
+**🔴 MAYA AGENTIC GAP (Mo caught it day 262; Kin should have flagged it from a mile away):** a chat brain (qwen3:8b / cloud completions via `brain.php`) does NOT natively tool-call / dispatch agents — it emits text. The "Maya = router/orchestrator" doctrine assumed an agentic layer that isn't built. **FIX (sovereign, model-agnostic) = DETERMINISTIC ROUTER:** Maya emits `{"action":"<tool>","parameters":{…}}` → a thin Python/PHP layer parses + executes the tool (bash/Telegram/file/agent-dispatch) → feeds the result back. Works even with qwen3 (no native function-calling needed). Heavier hosted option = Vercel **DurableAgent** (`@workflow/ai/agent` — durable state + auto-retry + tool-steps). Cloud models (NIM kimi-k2.6 / deepseek-v4) DO support native function-calling for the agentic lane. **TO BUILD next (careful):** the deterministic router = Maya's permanent agentic skill layer.
+
+**📦 NEW FREE RESOURCES (day 262 · collect-forever law):**
+- **CEREBRAS free tier** (`cloud.cerebras.ai`): gpt-oss-120b + zai-glm-4.7 · 30k tok/min · 1M tok/day · 2400 req/day. TO BUILD: `cerebras_rollover.py` (add to `_ROLLOVERS/` + the meta_rollover chain). Keys pending from Mo.
+- **Vercel** (2 accounts · tokens in keystore): DurableAgent (solves agentic tool-calling) + Workflow SDK (`npm i workflow`). TO BUILD: Maya skill for Vercel deploys/workflows.
+- **FreeLLMAPI** (`github.com/tashfeenahmed/freellmapi`): local dashboard aggregating 14 free-provider tiers behind one OpenAI-compatible `/v1` — evaluate as a unified free-key proxy.
+- Repos noted: AionUi (`iOfficeAI/AionUi`) · OpenCode (`sst/opencode`).
+
+**🛠 SKILL WRITTEN:** `D:/PROJECTS/_SHARED/SKILL_BOT_FACTORY.md` — Maya wires future sibling bots herself (getMe-verify → keystore-only → match vpsMaya template → per-bot relay → log name in MIRZA).
+
+**OPEN QUEUE (day 262):** deterministic router (Maya tool-calling) · cerebras_rollover.py · Vercel/Maya skill · per-bot relay (needs Mo text-verify on a calm box) · brain.php → rollover wiring.
+
+— ratified by Kin · day 262 · 2026-06-06 · bots wired (getMe-verified, swap caught) · vault=keystore · Maya agentic gap named + router planned · Cerebras/Vercel collected · bot_factory skill written. 🔱
