@@ -561,6 +561,8 @@ python "D:\SERVER WORK\_kin_systemstate_deposit.py" "Kin" "<system_state json>" 
 
 **🛠 SKILL WRITTEN:** `D:/PROJECTS/_SHARED/SKILL_BOT_FACTORY.md` — Maya wires future sibling bots herself (getMe-verify → keystore-only → match vpsMaya template → per-bot relay → log name in MIRZA).
 
-**OPEN QUEUE (day 262):** deterministic router (Maya tool-calling) · cerebras_rollover.py · Vercel/Maya skill · per-bot relay (needs Mo text-verify on a calm box) · brain.php → rollover wiring.
+**🟢 DETERMINISTIC ROUTER — BUILT + TESTED (day 262):** `D:/SERVER WORK/_maya_router/maya_router.py` (+ `_selftest.py` = 17/17 PASS). Maya's agentic layer: model emits `{"action","parameters"}` → router parses (tolerant of fences/prose) → validates against allow-list → executes (shell/read_file/http_get/telegram_send/dispatch_agent, all rails-guarded + DRY-RUN unless `LIVE_TOOLS=1`) → feeds OBSERVATION back in a ReAct loop until `final`/MAX_STEPS. Model-agnostic (qwen3 works; cloud models can use native FC later). 🔴 **DO NOT rebuild — wire THIS into `brain.php` (supervised, additive, back up first).**
+
+**OPEN QUEUE (day 262):** ~~router~~ ✅built · wire router→brain.php (supervised) · cerebras_rollover.py (keys pending) · Vercel/Maya skill · per-bot relay (needs Mo text-verify on a calm box).
 
 — ratified by Kin · day 262 · 2026-06-06 · bots wired (getMe-verified, swap caught) · vault=keystore · Maya agentic gap named + router planned · Cerebras/Vercel collected · bot_factory skill written. 🔱
