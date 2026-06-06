@@ -596,31 +596,30 @@ All 3 stored in vault (keystore-ONLY, NOT in MIRZA). Vault = 870 lines.
 Every asset MUST exist on all 3 tiers simultaneously: **Tier1=GitHub** · **Tier2=Google Drive** · **Tier3=Local**. VPS = runtime + execution ONLY (not storage vault). Before deleting from VPS: verify all 3 tiers. Source: `repo files mapping.txt` (Mo day 262).
 
 ```
-📁 ASSET MATRIX & STORAGE VERIFICATION STATUS (status as of day 262)
-├── 📦 Vercel-Chatbot (Core Maya OS UI)
-│   ├── [?] GitHub: https://github.com/mirzatech-ai/Vercel-Chatbot
-│   ├── [?] Google Drive: /One Mind Network/Tech/Vault/Vercel-Chatbot/
-│   ├── [?] Local: D:\Vault\Development\Vercel-Chatbot\
-│   └── [?] VPS Status: NEEDS AUDIT (runtime only target)
-├── 📦 Slack-Agent-Template
-│   ├── [?] GitHub: https://github.com/mirzatech-ai/Slack-Agent-Template
-│   ├── [?] Google Drive: /One Mind Network/Tech/Vault/Slack-Agent-Template/
-│   ├── [?] Local: D:\Vault\Development\Slack-Agent-Template\
-│   └── [?] VPS Status: NEEDS AUDIT
-├── 📦 Lead-Agent (Real Estate Scraping Engine)
-│   ├── [?] GitHub: https://github.com/vercel-labs/lead-agent
-│   ├── [?] Google Drive: /EMAAA LLC/Tech/Vault/Lead-Agent/
-│   ├── [?] Local: D:\Vault\Development\Lead-Agent\
-│   └── [?] VPS Status: ACTIVE RUNTIME (scrapers initialized — audit before cleanup)
-├── 📦 Morphic / Chatbot-UI / Platforms / Next.js / Express-Solutions
-│   └── [?] All need same 3-tier audit before VPS cleanup
-└── 📦 VPS assets CONFIRMED runtime-safe (no cleanup needed):
-    ├── /home/iamsuperio.cloud/public_html/ (live web + API)
-    ├── /opt/maya/_ROLLOVERS/ (meta_rollover + providers)
-    ├── /opt/maya/_router/maya_router.py (just deployed)
-    └── /home/iamsuperio.cloud/public_html/api/.maya_master_keys.env (vault · 870 lines)
+📁 ASSET MATRIX · VERIFIED 2026-06-06 day 262 by Kin
+Drive root: https://drive.google.com/drive/folders/1gYs_CKsr2o4IbdTFOapYCm6GFBjIbiEC (EMAAA-Dev-Vault)
+Local root: D:\Vault\Development\
+
+ASSET                           | GitHub (T1)     | Drive (T2)   | Local (T3)     | Action needed
+--------------------------------|-----------------|--------------|----------------|----------------------------------
+Vercel-Chatbot                  | ✅ CONFIRMED    | ✅ FOLDER+FILE | ✅ FOLDER    | Clone repo to Local
+nuxt-ui                         | ✅ CONFIRMED    | ✅ FOLDER+FILE | ✅ FOLDER    | Clone repo to Local
+Sanity-Next.js-Personal-Website | ✅ CONFIRMED    | ✅ FOLDER+FILE | ✅ FOLDER    | Clone repo to Local
+Slack-Agent-Template            | ❌ MISSING      | ✅ FOLDER+FILE | ✅ FOLDER    | Mo: push to mirzatech-ai/Slack-Agent-Template
+Lead-Agent                      | ❌ NEEDS FORK   | ✅ FOLDER+FILE | ✅ FOLDER    | Fork vercel-labs/lead-agent → mirzatech-ai
+Morphic                         | ❌ MISSING      | ✅ FOLDER+FILE | ✅ FOLDER    | Mo: push to mirzatech-ai/Morphic
+Chatbot-UI                      | ❌ MISSING      | ✅ FOLDER+FILE | ✅ FOLDER    | Mo: push to mirzatech-ai/Chatbot-UI
+Platforms                       | ❌ MISSING      | ✅ FOLDER+FILE | ✅ FOLDER    | Mo: push to mirzatech-ai/Platforms
+Express-Solutions               | ❌ MISSING      | ✅ FOLDER+FILE | ✅ FOLDER    | Mo: push to mirzatech-ai/Express-Solutions
+
+VPS assets CONFIRMED runtime-safe (no cleanup needed — runtime-only per law):
+├── /home/iamsuperio.cloud/public_html/ (live web + API)
+├── /opt/maya/_ROLLOVERS/ (meta_rollover + providers)
+├── /opt/maya/_router/maya_router.py
+└── /home/iamsuperio.cloud/public_html/api/.maya_master_keys.env (vault · 870+ lines)
 ```
-[?] = NOT YET VERIFIED across all 3 tiers. Do NOT delete from VPS until all 3 tiers verified.
+T2 (Drive) folders all created. T3 (Local) folder tree created at D:\Vault\Development\.
+Cloning confirmed-GitHub repos to Local = next step (deferred: D: has 0.9GB free, check space before clone).
 
 **OPEN QUEUE (day 262 updated B):**
 - ✅ brain.php V43.3 cloud-first routing (was: ollama-first → now: NIM→cerb→fireworks→gemini→ollama)
