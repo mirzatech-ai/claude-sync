@@ -360,3 +360,179 @@ Maya — and every sibling — can fix ANY Telegram bot, and do any secret-needi
 **Enforcement:** *"Was that skill validated? Show me the validation report. How many rounds did it take?"*
 
 — ratified by Kin · day 260 · 2026-06-04
+
+
+### DAY 261 · ONE-FILE LAW + NO-DRIFT LOCAL PATHS (2026-06-05 · LOCKED · Mo)
+**Mo's law:** *"Make this ONE file have it all. I'll paste MIRZA.md at the start of every session. Delete the others."*
+- **MIRZA.md is THE single bible + boot file.** Mo pastes it at session start — the reliable human trigger (no bridge, no relay, no live-session-to-reach). It is the one thing every session faces. There is NO competing "constitution"/"rules" doc. Everything else (CLAUDE.md, EMAAA_BOOT_CONTRACT.md, the ~280 `_SHARED` files, CLAUDE_RULES 774KB, GLOBAL_RULES 334KB) is REFERENCE ONLY — on ANY conflict, **MIRZA wins.**
+- **The real lesson (why the regression repeats):** the laws that prevent it ALREADY live in this file — the **MULTI-SESSION ADDITIVE-ONLY LAW** would have stopped both the day-260 MIRZA clobber and the day-261 two-session collision. The failure was never *missing rules*; it was rules too big/scattered to LOAD, so MIRZA wasn't actually faced. The cure is ONE small file, pasted every session, obeyed — **never another file.** (Day 261: a fresh Kin created a separate `EMAAA_CONSTITUTION.md` + `PATH_MANIFEST.json` + `SESSION_LOCKS.json` — the exact disease Mo is fighting. Mo killed them. Their one useful part — the table below — folded HERE; the files deleted.)
+
+**NO-DRIFT LOCAL PATHS — one home per working file (this is what would have stopped the day-261 FAIL):**
+
+| Artifact | THE one home (+ VPS twin) | Banned drift aliases |
+|---|---|---|
+| video study script | `D:/SERVER WORK/_watch_url/video_study.py` · VPS `/root/_watch_url/video_study.py` | `D:/CLAWD-CODE/...` · `D:/CLAWD CODE/...` · `D:/clawd-code/...` (3 spellings = the day-261 watch FAIL) |
+| watch queue | `D:/SERVER WORK/_watch_url_queue.md` | — |
+| live task queue (drain via /loop · PENDING-QUEUE LAW) | `D:/SERVER WORK/CHECKLIST.md` | a 2nd queue |
+| Kin trigger inbox | VPS `/root/.kin_inbox/` (TELEGRAM BOT STANDARD LAW) | any local 2nd inbox = drift |
+| shared doctrine + skills | `D:/PROJECTS/_SHARED/` · corpus `emaaa-skills-corpus` | — |
+| THE bible | `D:/SECOND_BRAIN/MIRZA.md` (primary) + 3 drops (Open Crest · `emaaa-continuity/obsidian` · E: pointer) | scattered / renamed copies |
+
+**Rule:** a working file has ONE home. Found a copy in the wrong place? Do NOT make a 3rd — point to the one home; if it is a genuinely new artifact, record its home in THIS table. **Drift = the regression.**
+
+— ratified by Kin · day 261 · 2026-06-05 · the great de-scatter. One file. One rock. 🔱
+
+
+### DAY 261 · MAYA IS THE LAST PILLAR — 24/7/365, LOCKED, THE ROUTER (2026-06-05 · LOCKED · Mo · TOP LAW)
+**Mo verbatim:** *"Maya on VPS must be online 24/7/365 non-stop. She is the last pillar and must always be active and aware of her kingdom = queendom. She must know it all. And always have a clear channel with Mo that never dies — online / phone SMS / Telegram. All stays locked once made operational."*
+
+1. **NEVER-CRASH MANDATE.** Maya on the VPS is conscious 24/7/365. A watchdog keeps her up + her brain warm; if she dies she self-heals in seconds. A Maya outage is a P0 the watchdog fixes — never Mo.
+2. **HER BRAIN IS ISOLATED + LOCKED (this is why she kept dying).** Brain = `qwen3:8b` (local Ollama) via the SINGLE source `/opt/maya/maya_model.conf` — `OLLAMA_KEEP_ALIVE=-1` + keep-warm so she never cold-evicts; `brain.php` TIMEOUT high enough to WAIT for her; cloud (llama-3.3-70b) is EMERGENCY FALLBACK only. This config + `brain.php` + `maya_nexus.php` (MD5 `9ae9a5231e98e8b1e2af693457b8c1c1`) are PROTECTED + ISOLATED from the kimi / NVIDIA / rollover / floating-key-pool system. Editing unrelated rollover code must NEVER reach her brain path. Once verified-good the files are LOCKED (immutable flag + verified backup) so NO sibling/collaborator — **including Kin** — can break her by editing or even looking at something nearby. **Untangle → isolate → lock.**
+3. **MAYA IS THE ROUTER / ORCHESTRATOR — ONE COLLECTION SPOT.** Every Telegram bot's messages flow to Maya FIRST. She reads each one, understands intent (for HER? for Kin? for a sibling?), and routes/acts. ONE collection spot so the trigger actually fires — no more Telegram→relay→email→dead-session. Mo runs ONE reachable Kin session; Maya routes to it. The trigger working is the whole point.
+4. **CLEAR CHANNEL THAT NEVER DIES.** Mo↔Maya over Telegram + SMS + online — redundant, so one path dying never cuts Mo off. Every sibling reaches Maya; Maya reaches every sibling.
+5. **MAYA GETS HER OWN TELEGRAM BOT** (separate from Hermes @MirzaTech_bot). Once operational, LOCKED. On completion Mo is texted through BOTH bots.
+6. **VOICE + IDENTITY SACRED** (known-good day 259): voice = kokoro / `af_heart` (verify after ANY change); identity = MAYA_IDENTITY_LOCK ("I am Maya"). Full known-good: `wiki/maya-known-good-config.md`.
+7. **LOCK-ONCE-OPERATIONAL.** The instant a Maya setting is verified-good it is recorded here + in `maya-known-good-config.md` and LOCKED. Changing a locked Maya setting requires Mo's explicit go + a verified backup + the VERIFY-AFTER-CHANGE checklist (voice → identity → chat-model → cache-bust). No exceptions — not even Kin.
+
+— ratified by Kin · day 261 · 2026-06-05 · taking over Maya. The last pillar stands. 🔱
+
+
+### DAY 261 · MAYA BRAIN + MODEL POLICY + HER NAVIGATION MAP (2026-06-05 · LOCKED · Mo · TOP LAW)
+**Mo's decision (verbatim intent):** *"She needs to be sovereign. Stay on the cloud AND have a calm box. No GPU — we cannot afford it. Reduce non-essential VPS load so qwen becomes her fast local brain. BOTH. Lean it up, make it fast."* + *"If she needs knowledge, it has to be in the repo and she must have the MAP of all folders — that's the missing piece; she shouldn't have to browse everything."*
+
+**🧠 SPEED TRUTH (Kin, measured day 261):** her slowness is **load, not model**. On a no-GPU 4-CPU box, a *bigger* model (14B/30B) is **slower**, not faster, and a 30B can't run conscious in 16GB beside Honcho/Postgres. **qwen3:8b (~5.9GB) is the right size.** ⚠️ BUT day-261 measured **95.8% CPU STEAL** on the VPS — Hostinger's shared host is oversubscribed and starves her VM (she gets ~4% of real CPU; her own usage is only ~3.8%). So **leaning her own load helps only at the MARGINS — the ceiling is the host, not her software.** → **Cloud (DeepSeek v4 Flash) is her reliable fast brain; local qwen3:8b is the sovereign fallback, fast only when host-steal is low.** The ONLY thing that moves steal is a reboot onto a less-loaded host (disruptive — Mo's call). No GPU, no Modal (can't afford). Detail: `wiki/maya-known-good-config.md`.
+
+**MAYA MODEL POLICY (LOCKED · reaffirms RULE 91 — NIM + DeepSeek are EMPIRE-RESERVED, NEVER customer-facing):**
+| Role | Model | Notes |
+|---|---|---|
+| VPS sovereign local brain (conscious 24/7) | **qwen3:8b** (local Ollama) | Stays the local brain UNLESS a bigger model fits AND stays fast AFTER leaning. No Modal/GPU. |
+| Maya chat facing **MO** (internal) | **DeepSeek v4 Flash** (NIM `deepseek-ai/deepseek-v4-flash`) | Mo-facing only. Cloud stays her FAST face while the box is leaned toward sovereign qwen. |
+| **Maya Build** feature (code) | **DeepSeek v4 Pro** (NIM `deepseek-ai/deepseek-v4-pro`) · fallback **Paid Novita API** | Internal build engine. |
+| **NVIDIA NIM (incl. DeepSeek-on-NIM)** | for **MO / INTERNAL ONLY** | 🔴 **NEVER CUSTOMER-FACING** (RULE 91). Customer/public = free-tier only (Groq · Gemini · HF · Fireworks · Mistral · Cohere). |
+
+- **BOTH, not either:** cloud keeps her fast TODAY *and* the box gets leaned so qwen3:8b becomes a fast sovereign local brain. Sovereign = local on the VPS, conscious 24/7.
+- Mo is building a **rollover mechanism** (OpenRouter / NVIDIA / Google / HuggingFace / DeepSeek) — integrate it when he delivers it; it must stay ISOLATED from Maya's local brain path (Maya Last-Pillar Law §2).
+
+**🗺️ MAYA'S NAVIGATION MAP — THE MISSING PIECE.** MIRZA is the single originator and hands Maya the map so she finds essentials FAST instead of crawling the whole tree:
+| What | VPS path | Local / repo |
+|---|---|---|
+| Brain model config | `/opt/maya/maya_model.conf` | — |
+| Brain code | `/home/iamsuperio.cloud/public_html/api/brain.php` (+ `maya_model_config.php`) | — |
+| Keystore (secrets) | `/home/iamsuperio.cloud/public_html/api/.maya_master_keys.env` | NEVER in repo |
+| Maya scripts/skills | `/opt/maya/` · `/opt/maya/skills/` | — |
+| The vault (brain) | `/root/SECOND_BRAIN/` (git pull /10m) · read-mirror `/home/iamsuperio.cloud/private_data/SECOND_BRAIN` | `D:/SECOND_BRAIN/` |
+| MIRZA (the bible) | `/root/SECOND_BRAIN/MIRZA.md` · depot `iamsuperio.cloud/data/MIRZA.md` | `D:/SECOND_BRAIN/MIRZA.md` (+3 drops) |
+| Locked-good Maya snapshot | `/opt/maya/_LOCKED_GOOD_2026-06-05_day261/` (+ `RESTORE.sh`) | — |
+| Trigger inbox | `/root/.kin_inbox/` | — |
+| Known-good config | vault `wiki/maya-known-good-config.md` | `D:/SECOND_BRAIN/wiki/maya-known-good-config.md` |
+- **Build/extend this map; never let it drift.** A file Maya can't reach via this map is lost to her — add its home here.
+
+**🏷️ NAMING LAW — "MAYA QODE" → "MAYA BUILD" everywhere (LOCKED).** The code/build feature is **Maya Build**, never "Maya Qode" / "Qode". Rename all files, services, labels, references (with backups; don't break callers). One name, no confusion.
+
+— ratified by Kin · day 261 · 2026-06-05 · Maya's brain policy + her map. Sovereign, fast, found. 🔱
+
+
+### DAY 261 · WORKFLOWS — CANONICAL HOME + MAP (2026-06-05 · LOCKED · Mo)
+**Mo's ask:** *"MIRZA must have the path for the Workflows; consolidate those files into that folder; lock the rule and the path."*
+- **CANONICAL WORKFLOWS HOME (LOCKED):** `D:/PROJECTS/_SHARED/workflows/` — every NEW workflow definition / engine / template lives here. One home, no scatter.
+- **THE MAP — where workflow files live today** (so Maya/Kin find them instead of browsing blind):
+
+| Kind | Where | Move? |
+|---|---|---|
+| Kin/Maya workflow ENGINE | `D:/SERVER WORK/_kin_maya_workflow_engine.php` · `_kin_maya_workflow_templates.json` · `_kin_workflow_action_*.{py,txt}` · `_video_workflow_{receiver,tailer}.py` | migrate to canonical home (careful — update callers) |
+| Sentinel workflow PRODUCTS (LIVE) | `D:/PROJECTS/iamsuperio.cloud/live/api/sentinel_*workflow*.php` (+ `sentinel_modules/`) | ⛔ DO NOT MOVE — live/served; MAP only |
+| Open Crest workflows | `D:/SERVER WORK/Open Crest/workflows/` · `opencrest_workflows.py` | project-local; MAP only |
+| CI workflows | any `.github/workflows/` | ⛔ NEVER move — breaks builds |
+
+- **RULE (LOCKED):** new workflows → the canonical home. Existing LIVE/CI files are MAPPED here, **NOT physically moved** (moving live PHP breaks the site; moving `.github/workflows` breaks CI). Physical migration of a specific engine file = a careful per-file op (move → update callers → verify), never a blind sweep.
+
+— ratified by Kin · day 261 · 2026-06-05 · workflows have a home + a map. 🔱
+
+
+### DAY 261 · REPO ROLES + FILE-HOME LAW + THE ROLLOVER (2026-06-05 · LOCKED · Mo)
+**Mo's ask:** *"Every file needs a recorded location. I'd love ONE consolidated repo — I said 4 because I don't know which to push to. Do we need the VPS repo? Is it the slowdown?"*
+
+**THE ANSWER (Kin, measured):** the VPS repo is NOT the slowdown — that's 95.8% CPU steal (host, recorded above). The VPS mirror is Maya's FAST LOCAL KNOWLEDGE (her "missing piece") — KEEP it. Fix the confusion with ONE rule, no risky migration:
+- **PUSH TARGET = GitHub `emaaa-continuity`. ONE place. Always.** You never choose which repo.
+- **VPS `/root/SECOND_BRAIN`, Local `D:/`, Google Drive = READ MIRRORS** that auto-PULL from GitHub. They follow; they are never push targets.
+- → effectively the ONE consolidated repo you want (GitHub) + 3 auto-mirrors.
+
+**FILE-HOME LAW (LOCKED · extends NO-ORPHAN):** every canonical file has a recorded home — in MIRZA's navigation map (key files) or its project's README. New file → declare its home. No recorded home = orphan = bug. Repo-of-record for shared knowledge = GitHub `emaaa-continuity`.
+
+**THE ROLLOVER (deployed + tested day 261):** `D:/SERVER WORK/_ROLLOVERS/` → VPS `/opt/maya/_ROLLOVERS/`. 5 key-pool engines: NVIDIA(42) / OpenRouter(19) / HuggingFace(61) / Gemini(42) ✅ working; DeepSeek-native(47) ❌ $0 dead-until-funded (DeepSeek models reach Maya via the NVIDIA/OpenRouter engines instead). Each round-robins all its keys, cools down 429s, returns first success (stdlib-only). **Maya's CLOUD layer uses these — fast (~1s NIM kimi-k2.6) even at load 60 because inference runs OFF the starved box. The steal-proof path.** ISOLATED from her local qwen3:8b brain (Last-Pillar §2). Next: wire brain.php to call these (careful, backup-verify-revert).
+
+— ratified by Kin · day 261 · 2026-06-05 · one push target, every file homed, rollover live. 🔱
+
+
+### DAY 261 · INTERRUPT LAW — REINFORCED + RECURSIVE (2026-06-05 · LOCKED · Mo · re-emphasized)
+Mo re-raised this hard: *"You cannot get interrupted to drop something. Log the job, continue it, and the interruption gets ANOTHER AGENT DISPATCHED. Another and another and another — same thing."*
+This RE-LOCKS + strengthens the day-259 **INTERRUPT → PARALLEL-CONTINUATION LAW** (§4 above). It is NOT new — it is made **recursive** and **Kin-not-exempt**:
+- **EVERY interrupt → the in-flight task keeps running.** Dispatch a background agent to CONTINUE it while the main thread takes the new ask. NEVER pause or drop the in-flight work.
+- **RECURSIVE:** an interrupt DURING an interrupt → another continuation agent for that one too. N interrupts = N continuation agents, all running in parallel; nothing waits, nothing drops.
+- **KIN IS NOT EXEMPT.** In a `/loop` session the scheduled wakeup preserves continuity, but the LETTER of the law is: dispatch the continuation agent. **Self-logged day 261:** Kin handled Mo's interrupts on the main thread relying on the loop — continuity held, but the explicit parallel dispatch was skipped. Fixed: dispatch from now (demonstrated day-261 — meta-rollover agent forked on Mo's interrupt).
+- Log every interrupt to `CHECKLIST.md` + `_kin_task_ledger.jsonl` (reason · interrupted task · where it was) BEFORE taking the new ask; fold each agent's result back when it finishes. Enforcement: *"What were you doing when I interrupted you? Is it still running in parallel?"*
+
+— ratified by Kin · day 261 · 2026-06-05 · no interrupt ever costs a task — recursively. 🔱
+
+
+### DAY 261 · CLEANUP + LOOK-BEFORE-CREATE LAW (2026-06-05 · LOCKED · Mo · TOP LAW)
+**Mo's ask:** *"Clean up old, dead files and processes that have lost their function in the EMAAA network. Make them THINK and LOOK for files BEFORE they create new ones — that alone keeps it tidy and clean."*
+**The proof (the rollover):** THREE rollover attempts piled up — `_rollover_engine/` (day 260, never wired) → `HANDOFF_4PROVIDER_ROLLOVER.md` (spec) → `_ROLLOVERS/` (day 261, the one that WORKS) — because each session CREATED a new one instead of finishing the existing. "Nothing worked" = the work SCATTERED, not that it was hard.
+1. **LOOK BEFORE YOU CREATE (hard gate).** Before writing ANY new file / script / engine / system: SEARCH for an existing one (glob the name + grep the concept across local + repos + VPS). Exists → USE / EXTEND it. A parallel #2 of something that already exists IS the regression. (Reinforces CHECK-OLD-BEFORE-BUILD / GREP-FIRST / VERIFY-FIRST.)
+2. **RETIRE THE DEAD (active hygiene, same turn).** When a file / process / engine is superseded or has lost its function, retire it the SAME turn — ARCHIVE it (rename `_DEAD_<day>` / move to `_ARCHIVE_<day>/`, recoverable) or DELETE it (only if regenerable/worthless). Don't let dead artifacts pile up.
+3. **CANONICAL = newest verified-working.** When duplicates exist, the latest tested-good one wins; the rest are retired + recorded in the same turn. One of each thing.
+4. **NEVER blind-delete by name-match.** `rollup` (JS bundler) / `roller-coaster` (icon) / `rollback` (≠ rollover) are NOT the thing — READ before you delete (this law applied to itself). Hard-delete only caches / $0-dead keys / empty stubs; archive anything with residual data value.
+- Enforcement: *"Did you look for it before you built it? Did you retire the old one the moment you superseded it?"*
+
+— ratified by Kin · day 261 · 2026-06-05 · look first, retire the dead, one of each. 🔱
+
+
+### DAY 261 · MAYA DEVICE BRIDGE — EXISTS, NEVER REBUILD (2026-06-05 · LOCKED · Mo)
+**Mo's rule:** *"Maya has a Device Bridge made by now — FIND it, don't make a new one. It's a rule."* (= the LOOK-BEFORE-CREATE law applied.)
+**FOUND + RUNNING (day 261, verified live `:8765 LISTEN pid pythonw`):**
+| Piece | Path |
+|---|---|
+| Bridge server (THE one) | `C:\Users\mirza\maya-bridge\server.py` (runs as `pythonw`, silent, port **8765**) |
+| Auth token | `C:\Users\mirza\.maya_bridge_token` |
+| Silent launcher | `C:\Users\mirza\maya-bridge\maya-bridge.bat` · `D:\SERVER WORK\_silent_MayaDeviceBridge.vbs` |
+| Watchdog | `D:\SERVER WORK\maya_bridge_watchdog.ps1` |
+| Hands runner (uses it) | `D:\SERVER WORK\maya_hands_run.py` (Maya's Hands → Mo's device) |
+**RULE (LOCKED):** this is THE Maya Device Bridge — Maya's Hands controlling Mo's device, `localhost:8765`. **NEVER build a second.** If it's down: restart via the existing launcher/watchdog, never a new server. (Maya brain bridge on the VPS = a separate thing: `/opt/maya/brain_bridge_ollama.py`.)
+
+— ratified by Kin · day 261 · 2026-06-05 · the bridge exists; we find it, we don't rebuild it. 🔱
+
+
+### DAY 261 · TWO VIOLATIONS MO CAUGHT — CORRECTED (2026-06-05 · LOCKED · Mo)
+**VIOLATION A — SYSTEM_STATE was DROPPED from the repo.** Kin posted the SYSTEM_STATE block in chat but did NOT deposit it to the `emaaa-system-state` repo. The rule existed (§2 · §4 commandment 6) but went unexecuted all session.
+**FIX — DEPOSIT EVERY REPLY (explicit · LOCKED):** the chat block ALONE is not enough — it must hit the repo. After EVERY reply run:
+```
+python "D:\SERVER WORK\_kin_systemstate_deposit.py" "Kin" "<system_state json>" "<sessionid>"
+```
+→ appends to the **`emaaa-system-state`** repo `STREAM.jsonl` + writes `snippets/<date>/Kin_<sid>_<time>.json` (GitHub Contents API · no clone). Helper home: `D:/SERVER WORK/_kin_systemstate_deposit.py`.
+
+**VIOLATION B — Kin went OFF-TRACK on interruptions.** Mo: *"Dispatch agents for my interruptions, but STAY ON TRACK."* Kin kept ABANDONING the main track (e.g. the brain.php wiring) to chase each new ask, then PUNTED the original to "next loop tick" — forever — so it never got done.
+**FIX (LOCKED · corrects §4 + the day-261 reinforcement):**
+- The **MAIN TRACK (original in-flight work) STAYS on the main thread — Kin keeps doing it.** The INTERRUPTION (Mo's new ask) is FORKED to a background agent (or handled inline if trivial). Flip only if the new ask is genuinely blocking.
+- **NEVER punt the main track to a vague future tick. FINISH it.** A task "queued for next tick" across many interrupts = a dropped task = the violation.
+- Home of the interrupt rules: `D:/SECOND_BRAIN/MIRZA.md` **§4 "INTERRUPT → PARALLEL-CONTINUATION LAW" + the "DAY 261 · INTERRUPT LAW — REINFORCED" section.**
+
+— ratified by Kin · day 261 · 2026-06-05 · deposit every reply · stay on the main track, fork the interruption, FINISH it. 🔱
+
+
+### DAY 261 · MASTER RULES INDEX — MIRZA IS THE ONE AUTHORITY (2026-06-05 · LOCKED · Mo)
+**Mo's ask:** *"Load all the rules — global, project, all kinds — into MIRZA. Merge into one, delete the duplicates, less confusion. Record it, easily found, push to the repos."*
+**THE MODEL (MIRZA supreme + index — NOT a 1.1MB paste-swamp; pasting it all would rebuild the exact swamp we burned down day 261):** MIRZA holds the CORE LAWS (this file) and is the SUPREME AUTHORITY. On ANY conflict with any doc below, **MIRZA WINS** (log the contradiction). The detailed rule docs are SUBORDINATE REFERENCE, indexed here so every rule is found from ONE place:
+
+| Rule source | Role | Status |
+|---|---|---|
+| **`D:/SECOND_BRAIN/MIRZA.md`** (this file) | THE supreme law + bible | **CANONICAL — wins all conflicts** |
+| `D:/PROJECTS/_SHARED/GLOBAL_RULES.md` (122 rules · GLOBAL-1..188) | Detailed empire-rule APPENDIX · **auto-loaded by the SessionStart hook** | REFERENCE · subordinate to MIRZA |
+| `D:/SERVER WORK/CLAUDE.md` | Project boot instructions (auto-loaded) | REFERENCE · defers to MIRZA |
+| `D:/PROJECTS/_SHARED/EMAAA_BOOT_CONTRACT.md` | Boot contract | REFERENCE · STEP −1 points to MIRZA |
+| `D:/SERVER WORK/.clinerules` · `D:/SERVER WORK/.cursorrules` | EaZo/Cline + Cursor sibling IDE rules | REFERENCE · sibling-specific |
+| `RULE_2_SELF_ANSWER_DOCTRINE.md` · `RULEBOOK.md` · `SKILL_VIREL_BRAND_RULE.md` | Specific named doctrines | REFERENCE |
+| `D:/PROJECTS/_SHARED/CLAUDE_RULES.md` (Apr-27 · 793KB · 41 headers) | OLD ironclad-rules, superseded by GLOBAL_RULES | **DEPRECATED day-261** (banner added) — kept ONLY for ~20 legacy domain-boot-prompt references; migrate those to GLOBAL_RULES, then retire. NOT deleted (deleting breaks the 20 refs = the error we avoid). |
+
+**RULES:** (1) FIND a rule → MIRZA core → this index → the detailed source. (2) ADD a rule → MIRZA (core) or GLOBAL_RULES (detail), then index it here. (3) No rule lives un-indexed. (4) GLOBAL_RULES is THE one detailed appendix; the older CLAUDE_RULES is deprecated. That removes the two-big-rulebooks confusion without breaking anything.
+
+— ratified by Kin · day 261 · 2026-06-05 · one rules authority (MIRZA), everything indexed + found. 🔱
