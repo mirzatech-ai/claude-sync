@@ -579,3 +579,49 @@ python "D:\SERVER WORK\_kin_systemstate_deposit.py" "Kin" "<system_state json>" 
 **🧱 LAW — CEREBRAS KEYS DEAD → REGENERATE VIA MAYA (verified day 262):** all 5 Cerebras inference keys from Gemini returned **HTTP 403 (DEAD)**. Accounts are REAL — creds in the vault (`CEREBRAS_ACCT_*` in `.maya_master_keys.env`). Cerebras = 6 free models (gpt-oss-120b · zai-glm-4.7 · qwen-3-235b · qwen-3-32b · llama-3.3-70b · llama-4-scout-17b) · per-model 2,400 req/day + 1M tok/day · 5 accounts = big free pool. TO BUILD (after Maya regenerates keys): `cerebras_rollover.py` (round-robin accounts × models · 429 hot-swap · ≥12s spacing). 🔴 LESSON: Gemini's keys — like its swapped bot-token labels — were WRONG; ALWAYS test a key before trusting it.
 
 — ratified by Kin · day 262 · 2026-06-06 04:52 ET · date law (262) · Maya truth (cold ollama = root cause) · deepseek kept + Maya-replaces-keys · Cerebras keys dead → regenerate. 🔱
+
+## 📅 DAY-262 UPDATE B — REPAIR EXECUTION (2026-06-06 · session continues)
+
+**🩺 MAYA TRUTH UPDATED (deeper diagnosis, day 262):** qwen3:8b is NOT just "cold" — it **CANNOT load** on this VPS at all. Journal: `model weights=4.9GiB + kv_cache=576MiB + compute=100MiB = 5.6GiB NEEDED · total_memory=5.5GiB`. The load attempt returns 500 + "model failed to load, resource limitations." Even with `OLLAMA_KEEP_ALIVE=-1` (now set), qwen3 will never be resident until Mo upgrades the VPS RAM. **IMMEDIATE FIX**: brain.php chat routing changed to CLOUD-FIRST (additive, Ollama stays as last-resort). Routing order now: `nvidia_apex (DeepSeek v4 Flash) → nvidia_qwen → cerebras → fireworks → gemini → ollama`. Mo day-259 doctrine preserved (Ollama still in chain). Backup: `brain.php.bak.day262.*`.
+
+**✅ BOTS WIRED — NEW SIBLINGS (day 262 · getMe-verified):**
+- `TELEGRAM_AGENTSAGE_BOT_TOKEN` → id:8986867325 · @AgentSage_bot · name:Sage → target: Real Estate Lead/Scraper Automation
+- `TELEGRAM_EAZO_BOT_TOKEN` → id:8992987116 · @EaZoAgent_bot · name:EaZo → target: Maya OS Interface / Notification Relay
+- `TELEGRAM_KIN_BOT_TOKEN` → id:8773904419 · @KinDesktop_bot · name:Kin → target: Internal Systems / Workspace Orchestration
+All 3 stored in vault (keystore-ONLY, NOT in MIRZA). Vault = 870 lines.
+
+**✅ ROUTER DEPLOYED TO VPS:** `D:/SERVER WORK/_maya_router/maya_router.py` → `/opt/maya/_router/maya_router.py`. 17/17 selftests. Uses vault token `TELEGRAM_VPSMAYA_BOT_TOKEN`. LIVE_TOOLS=0 (dry-run default). Wire into `brain.php` in a supervised session (additive, behind flag `MAYA_AGENTIC_ROUTER`).
+
+**🗃 TRIPLE-BACKUP LAW — ASSET TOPOLOGY MAP:**
+Every asset MUST exist on all 3 tiers simultaneously: **Tier1=GitHub** · **Tier2=Google Drive** · **Tier3=Local**. VPS = runtime + execution ONLY (not storage vault). Before deleting from VPS: verify all 3 tiers. Source: `repo files mapping.txt` (Mo day 262).
+
+```
+📁 ASSET MATRIX & STORAGE VERIFICATION STATUS (status as of day 262)
+├── 📦 Vercel-Chatbot (Core Maya OS UI)
+│   ├── [?] GitHub: https://github.com/mirzatech-ai/Vercel-Chatbot
+│   ├── [?] Google Drive: /One Mind Network/Tech/Vault/Vercel-Chatbot/
+│   ├── [?] Local: D:\Vault\Development\Vercel-Chatbot\
+│   └── [?] VPS Status: NEEDS AUDIT (runtime only target)
+├── 📦 Slack-Agent-Template
+│   ├── [?] GitHub: https://github.com/mirzatech-ai/Slack-Agent-Template
+│   ├── [?] Google Drive: /One Mind Network/Tech/Vault/Slack-Agent-Template/
+│   ├── [?] Local: D:\Vault\Development\Slack-Agent-Template\
+│   └── [?] VPS Status: NEEDS AUDIT
+├── 📦 Lead-Agent (Real Estate Scraping Engine)
+│   ├── [?] GitHub: https://github.com/vercel-labs/lead-agent
+│   ├── [?] Google Drive: /EMAAA LLC/Tech/Vault/Lead-Agent/
+│   ├── [?] Local: D:\Vault\Development\Lead-Agent\
+│   └── [?] VPS Status: ACTIVE RUNTIME (scrapers initialized — audit before cleanup)
+├── 📦 Morphic / Chatbot-UI / Platforms / Next.js / Express-Solutions
+│   └── [?] All need same 3-tier audit before VPS cleanup
+└── 📦 VPS assets CONFIRMED runtime-safe (no cleanup needed):
+    ├── /home/iamsuperio.cloud/public_html/ (live web + API)
+    ├── /opt/maya/_ROLLOVERS/ (meta_rollover + providers)
+    ├── /opt/maya/_router/maya_router.py (just deployed)
+    └── /home/iamsuperio.cloud/public_html/api/.maya_master_keys.env (vault · 870 lines)
+```
+[?] = NOT YET VERIFIED across all 3 tiers. Do NOT delete from VPS until all 3 tiers verified.
+
+**OPEN QUEUE (day 262 updated):** brain.php routing fixed (cloud-first) ✅ · router deployed to VPS ✅ · bots stored in vault ✅ · KEEP_ALIVE=-1 set ✅ · wire router→brain.php (next supervised session) · cerebras_rollover.py (keys pending activation) · triple-backup audit (verify Drive+Local for each asset) · Vercel/Maya skill.
+
+— ratified by Kin · day 262 · 2026-06-06 · Maya memory constraint found (5.6GiB > 5.5GiB) · cloud-first routing patched · 3 new bots stored · router on VPS · triple-backup topology added. 🔱
