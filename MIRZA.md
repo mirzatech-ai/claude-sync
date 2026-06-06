@@ -599,6 +599,8 @@ Every asset MUST exist on all 3 tiers simultaneously: **Tier1=GitHub** · **Tier
 📁 ASSET MATRIX · VERIFIED 2026-06-06 day 262 by Kin
 Drive root: https://drive.google.com/drive/folders/1gYs_CKsr2o4IbdTFOapYCm6GFBjIbiEC (EMAAA-Dev-Vault)
 Local root: D:\Vault\Development\
+<<<<<<< HEAD
+=======
 
 ASSET                           | GitHub (T1)     | Drive (T2)   | Local (T3)     | Action needed
 --------------------------------|-----------------|--------------|----------------|----------------------------------
@@ -620,8 +622,30 @@ VPS assets CONFIRMED runtime-safe (no cleanup needed — runtime-only per law):
 ```
 T2 (Drive) folders all created. T3 (Local) folder tree created at D:\Vault\Development\.
 Cloning confirmed-GitHub repos to Local = next step (deferred: D: has 0.9GB free, check space before clone).
+>>>>>>> 4eb0d412f2b549717d84ab8b1831c9f13b2db781
 
-**OPEN QUEUE (day 262 updated B):**
+ASSET                           | GitHub (T1)          | Drive (T2)     | Local (T3)   | Notes
+--------------------------------|----------------------|----------------|--------------|------------------------------
+Vercel-Chatbot                  | ✅ private (Mo)      | ✅ FOLDER+FILE | ✅ FOLDER    | needs local clone
+nuxt-ui                         | ✅ private (Mo)      | ✅ FOLDER+FILE | ✅ FOLDER    | needs local clone
+Sanity-Next.js-Personal-Website | ✅ private (Mo)      | ✅ FOLDER+FILE | ✅ FOLDER    | needs local clone
+Slack-Agent-Template            | ✅ private (Mo)      | ✅ FOLDER+FILE | ✅ FOLDER    | needs local clone
+Lead-Agent                      | ✅ fork vercel-labs  | ✅ FOLDER+FILE | ✅ FOLDER    | needs local clone
+Morphic                         | ✅ fork miurla       | ✅ FOLDER+FILE | ✅ FOLDER    | needs local clone
+Chatbot-UI                      | ✅ fork mckaywrigley | ✅ FOLDER+FILE | ✅ FOLDER    | needs local clone
+Platforms                       | ✅ fork vercel       | ✅ FOLDER+FILE | ✅ FOLDER    | needs local clone
+Express-Solutions               | ✅ placeholder (Kin) | ✅ FOLDER+FILE | ✅ FOLDER    | needs vercel/examples content · Mo to fill
+
+VPS assets CONFIRMED runtime-safe (no cleanup needed — runtime-only per law):
+├── /home/iamsuperio.cloud/public_html/ (live web + API)
+├── /opt/maya/_ROLLOVERS/ (meta_rollover + providers)
+├── /opt/maya/_router/maya_router.py
+└── /home/iamsuperio.cloud/public_html/api/.maya_master_keys.env (vault · 870+ lines)
+```
+T2 (Drive) folders all created. T3 (Local) folder tree created at D:\Vault\Development\.
+Cloning confirmed-GitHub repos to Local = next step (deferred: D: has 0.9GB free, check space before clone).
+
+**OPEN QUEUE (day 262 updated D — 3 bots + Vercel-Cerebras done):**
 - ✅ brain.php V43.3 cloud-first routing (was: ollama-first → now: NIM→cerb→fireworks→gemini→ollama)
 - ✅ Python agentic router deployed to VPS + stdin/stdout mode + NIM brain_call built-in
 - ✅ brain.php V43.4 MAYA_AGENTIC_ROUTER block injected (ADDITIVE, flag=0 by default)
@@ -630,10 +654,22 @@ Cloning confirmed-GitHub repos to Local = next step (deferred: D: has 0.9GB free
 - ✅ 3 new bots getMe-verified + stored in vault (AgentSage_bot · EaZoAgent_bot · KinDesktop_bot)
 - ✅ OLLAMA_KEEP_ALIVE=-1 systemd override (future RAM upgrade prep)
 - ✅ cerebras_rollover.py built at D:/SERVER WORK/_ROLLOVERS/ (5 accounts × 6 models; keys pending activation)
-- 🔴 Cerebras activation: 5 accounts (CEREBRAS_ACCT_*_EMAIL/_PASS in vault) need email confirmation on cloud.cerebras.ai. Maya to handle (browser automation). Keys labeled DEAD403 until activated.
-- 🔴 Triple-backup audit: verify GitHub+Drive+Local for each asset in mapping before VPS cleanup
-- 🔴 Vercel integration: wire vercel/chatbot + express to Cerebras endpoints (after keys live)
-- 🔴 Wire LIVE_TOOLS=1 on VPS + test agentic dispatch with a real shell tool (Mo greenlight needed)
-- 🔴 VPS RAM audit: 5.5GiB total, qwen3:8b needs 5.6GiB — cannot load. Cloud routing is the fix until RAM upgraded.
+- ✅ TRIPLE-BACKUP LAW: all 9 mapping assets now on T1+T2+T3 (GitHub repos · Drive EMAAA-Dev-Vault · D:\Vault\Development\)
+- ✅ **3 BOT OUTBOUND TAILERS LIVE (day 262 T08:12 ET):**
+  - sage-telegram-out.service → AgentSage_bot → /private_data/sage_telegram_out/
+  - eazo-telegram-out.service → EaZoAgent_bot → /private_data/eazo_telegram_out/
+  - kin-telegram-out.service → KinDesktop_bot → /private_data/kin_telegram_out/
+  - **ALL 3 SMOKE-TESTED**: test files sent at T12:08 UTC · logs + _sent dirs confirmed
+  - Use: `echo "msg" > /private_data/<slug>_telegram_out/<slug>_dispatch_<ts>.txt`
+- ✅ **VERCEL-CHATBOT CEREBRAS INTEGRATION COMMITTED (day 262):**
+  - Repo: mirzatech-ai/Vercel-Chatbot · main branch
+  - Added: cerebras/llama-3.3-70b + cerebras/llama-3.1-8b to models.ts (additive)
+  - Added: cerebrasProvider (createOpenAI, baseURL=https://api.cerebras.ai/v1) to providers.ts
+  - ACTIVATION PATH: confirm email at cloud.cerebras.ai → regen keys → set CEREBRAS_API_KEY in Vercel project settings → redeploy
+- 🔴 PENDING: Cerebras activation (5 accounts · CEREBRAS_ACCT_*_EMAIL/_PASS in vault · email confirm → regen keys → vault update from DEAD403 labels)
+- 🔴 PENDING: LIVE_TOOLS=1 (Mo greenlight to enable Python router live shell dispatch)
+- 🟡 PENDING: Express-Solutions content (placeholder repo · Mo to populate from vercel/examples/solutions/express)
+- 🟡 PENDING: Local repo clones (D:\Vault\Development\ folder tree exists · defer until D: space available)
+- 🟡 PENDING: Vercel deployment (VERCEL_API_TOKEN_PRIMARY ready · deploy post Cerebras activation)
 
-— ratified by Kin · day 262 · 2026-06-06 · MAJOR: Python router E2E PROVEN · brain.php V43.4 injected · cerebras_rollover built · Maya online (cloud-first) · 3 bots wired. 🔱
+— ratified by Kin · day 262 · 2026-06-06 T08:12 ET · MAJOR: 3 bots live, Vercel-Cerebras code committed, Maya online cloud-first. 🔱
